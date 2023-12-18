@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 const Story = () => {
   return (
-    <div className="flex flex-col md:p-4">
+    <div className="flex flex-col py-8">
       <div className="title text-center text-3xl font-semibold">
         הסיפור של שני
       </div>
       <div className="w-full flex flex-col-reverse xl:flex-row justify-center items-center p-4 gap-4">
         <div className="xl:w-1/2 w-full flex justify-center items-center">
-          <div className="xl:w-3/4 w-full space-y-4">
+          <div className="2xl:w-3/4 w-full space-y-4">
             <div className="xl:text-2xl text-lg">
               ילדה שמחה וחייכנית עם צחוק מתגלגל שכל מטרה שהציבה לעצמה בחיים
               הצליחה להשיג. מעצמאות מגיל קטן ועד סיום תואר במשפטים במכללה למנהל
@@ -34,7 +34,7 @@ const Story = () => {
             <img
               src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702904393/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2023-12-10_%D7%91%D7%A9%D7%A2%D7%94_18.33.32_575e6838_trpokf.jpg"
               alt="shani"
-              className="p-4 hover:scale-105 transition duration-500 ease-in-out"
+              className="p-4 hover:scale-105 transition duration-500 ease-in-out pointer-events-none"
             />
           </div>
         </div>
