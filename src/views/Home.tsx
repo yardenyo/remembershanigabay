@@ -1,9 +1,9 @@
-import HeroSection from "@/components/HeroSection";
+import Story from "@/components/Story";
 
 const Home = () => {
   return (
     <main className="flex flex-col">
-      <HeroSection />
+      <Story />
     </main>
   );
 };
