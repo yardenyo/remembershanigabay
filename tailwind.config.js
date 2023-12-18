@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "build-state":
-          "url('https://res.cloudinary.com/dweltcoxk/image/upload/v1702223978/build_uessvo.webp')",
+        "hero-section":
+          "url('https://res.cloudinary.com/dweltcoxk/image/upload/v1702896957/%D7%9C%D7%9C%D7%90_%D7%A9%D7%9D_kw2vxi.png')",
       },
       fontFamily: {
         body: ["Assistant", "sans-serif"],
