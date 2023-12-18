@@ -1,6 +1,11 @@
+import Navbar from "@/components/Navbar";
+
 const HeroSection = () => {
   return (
-    <div className="h-[80vh] flex flex-col md:flex-row border border-black shadow-lg">
+    <div className="relative h-[80vh] flex flex-col md:flex-row border border-black shadow-lg">
+      <div className="absolute top-4 w-full z-50">
+        <Navbar />
+      </div>
       <div className="w-full md:w-1/2">
         <img
           src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702896957/%D7%9C%D7%9C%D7%90_%D7%A9%D7%9D_kw2vxi.png"
