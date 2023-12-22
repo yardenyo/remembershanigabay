@@ -34,7 +34,7 @@ const Story = () => {
             <img
               src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702904393/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2023-12-10_%D7%91%D7%A9%D7%A2%D7%94_18.33.32_575e6838_trpokf.jpg"
               alt="shani"
-              className="p-4 hover:scale-105 transition duration-500 ease-in-out pointer-events-none"
+              className="p-4 hover:scale-105 transition duration-500 ease-in-out"
             />
           </div>
         </div>

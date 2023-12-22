@@ -5,6 +5,11 @@ const NavbarLinks = [
     path: "/story",
   },
   {
+    key: "organization",
+    title: "חוט השני",
+    path: "/organization",
+  },
+  {
     key: "media",
     title: "מדיה",
     path: "/media",
