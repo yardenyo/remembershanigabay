@@ -29,7 +29,7 @@ const Story = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center">
+        <div className="w-full flex justify-center lg:justify-end items-center">
           <div className="md:w-3/4 w-full flex justify-center items-center border border-black border-opacity-20">
             <img
               src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702904393/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2023-12-10_%D7%91%D7%A9%D7%A2%D7%94_18.33.32_575e6838_trpokf.jpg"
