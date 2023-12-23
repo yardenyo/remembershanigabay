@@ -10,7 +10,9 @@ const Navbar = () => {
     <div className="container mx-auto p-2 navbar">
       <div className="flex justify-between items-center">
         <div className="text-2xl font-semibold navbar-link">
-          <Link to="/">הבית של שני</Link>
+          <Link to="/">
+            הבית של <span className="text-red-500">שני</span>
+          </Link>
         </div>
         <div className="md:hidden flex" onClick={toggleNavbar}>
           <svg

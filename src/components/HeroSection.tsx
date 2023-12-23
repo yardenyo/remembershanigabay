@@ -15,8 +15,12 @@ const HeroSection = () => {
         />
       </div>
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 absolute top-1/2 md:relative md:top-0 md:border-none border border-black border-opacity-20 bg-white bg-opacity-80 py-8 md:py-0">
-        <div className="text-4xl font-semibold">זוכרים את שני גבאי ז"ל</div>
-        <div className="text-2xl">אתר הנצחה לזכרה של שני גבאי הי"ד</div>
+        <div className="text-4xl font-semibold">
+          זוכרים את <span className="text-red-500">שני</span> גבאי ז"ל
+        </div>
+        <div className="text-2xl">
+          אתר הנצחה לזכרה של <span className="text-red-500">שני</span> גבאי הי"ד
+        </div>
         <div className="flex mt-4 gap-4">
           <button className="btn btn-primary">
             <Link to="/memory-book">ספר הזכרונות</Link>
