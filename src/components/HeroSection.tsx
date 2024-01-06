@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[80vh] flex flex-col md:flex-row border-b border-black shadow-lg">
+    <div className="relative h-[80vh] flex flex-col md:flex-row border-b border-black border-opacity-5">
       <div className="absolute top-4 w-full z-50">
         <Navbar />
       </div>
