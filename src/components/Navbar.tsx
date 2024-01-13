@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center">
         <div className="text-2xl font-semibold navbar-link">
           <Link to="/">
-            הבית של <span className="text-red-500">שני</span>
+            דף הבית של <span className="text-red-500">שני</span>
           </Link>
         </div>
         <div className="md:hidden flex" onClick={toggleNavbar}>
