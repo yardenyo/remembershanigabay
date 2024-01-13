@@ -32,7 +32,7 @@ const Story = () => {
         <div className="w-full flex justify-center lg:justify-end items-center">
           <div className="md:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
             <img
-              src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702904393/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2023-12-10_%D7%91%D7%A9%D7%A2%D7%94_18.33.32_575e6838_trpokf.jpg"
+              src="https://res.cloudinary.com/dweltcoxk/image/upload/v1705159244/IMG_20180222_093118_405_aubfet.jpg"
               alt="shani"
               className="p-4 hover:scale-105 transition duration-500 ease-in-out"
             />
