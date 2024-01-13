@@ -40,8 +40,8 @@ const Media = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center">
-          <button className="btn btn-primary">
+        <div className="flex justify-center px-8">
+          <button className="btn btn-primary w-full lg:w-auto">
             <Link to="/media">כל המדיה</Link>
           </button>
         </div>
