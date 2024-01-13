@@ -18,7 +18,7 @@ const Organization = () => {
                 </span>
                 <span className="text-3xl">”</span>
               </div>
-              <div className="text-2xl">
+              <div className="xl:text-2xl text-lg">
                 כך נכתב בשיר השירים על ידי שלמה המלך, וכך נכתב על ידי משפחתה
                 וחבריה הקרובים של שני גבאי ז"ל. הפרוייקט "חוט השני" הוקם על מנת
                 להקים חוט קשר בין המשפחה והחברים של שני ז"ל לבין הציבור הרחב
