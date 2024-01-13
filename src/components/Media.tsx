@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Media = () => {
   const mediaItems = [
@@ -40,7 +41,9 @@ const Media = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <button className="btn btn-primary">כל המדיה</button>
+          <button className="btn btn-primary">
+            <Link to="/media">כל המדיה</Link>
+          </button>
         </div>
         {selectedImage && (
           <div

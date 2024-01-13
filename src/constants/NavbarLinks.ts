@@ -10,14 +10,14 @@ const NavbarLinks = [
     path: "/organization",
   },
   {
-    key: "media",
-    title: "מדיה",
-    path: "/media",
-  },
-  {
     key: "memory-book",
     title: "ספר הזכרונות",
     path: "/memory-book",
+  },
+  {
+    key: "media",
+    title: "מדיה",
+    path: "/media",
   },
   {
     key: "memorial-candles",
