@@ -8,7 +8,7 @@ type Props = {
 const Testimonial = ({ name, title, quote, image }: Props) => {
   return (
     <div
-      className="relative p-4 flex border gap-4 h-[350px] overflow-hidden rounded-lg"
+      className="relative p-4 flex border gap-4 overflow-hidden rounded-lg"
       dir="rtl"
     >
       <div className="absolute -bottom-5 -left-5 w-32 h-32 bg-gradient-to-br from-[#FF0000] to-[#FF7878] rounded-full blur-3xl opacity-75"></div>
