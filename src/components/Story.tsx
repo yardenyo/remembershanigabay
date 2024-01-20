@@ -7,7 +7,7 @@ const Story = () => {
         הסיפור של <span className="text-red-500">שני</span>
       </div>
       <div className="w-full flex flex-col-reverse lg:flex-row justify-center items-center p-8 gap-4">
-        <div className="md:w-3/4 w-full flex justify-center items-center">
+        <div className="xl:w-3/4 w-full flex justify-center items-center">
           <div className="w-full space-y-4">
             <div className="xl:text-2xl text-lg">
               ילדה שמחה וחייכנית עם צחוק מתגלגל שכל מטרה שהציבה לעצמה בחיים
@@ -30,7 +30,7 @@ const Story = () => {
           </div>
         </div>
         <div className="w-full flex justify-center lg:justify-end items-center">
-          <div className="md:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
+          <div className="xl:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
             <img
               src="https://res.cloudinary.com/dweltcoxk/image/upload/v1705159244/IMG_20180222_093118_405_aubfet.jpg"
               alt="shani"

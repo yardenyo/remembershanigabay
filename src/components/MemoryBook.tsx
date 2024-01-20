@@ -13,6 +13,7 @@ const MemoryBook = () => {
         <Carousel
           value={Memories}
           numScroll={1}
+          circular
           className="mt-8"
           itemTemplate={(testimonial) => (
             <Testimonial

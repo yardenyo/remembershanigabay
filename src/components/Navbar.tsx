@@ -14,7 +14,7 @@ const Navbar = () => {
             דף הבית של <span className="text-red-500">שני</span>
           </Link>
         </div>
-        <div className="md:hidden flex" onClick={toggleNavbar}>
+        <div className="lg:hidden flex" onClick={toggleNavbar}>
           <svg
             className="w-6 h-6"
             fill="none"
@@ -29,7 +29,7 @@ const Navbar = () => {
             ></path>
           </svg>
         </div>
-        <div className={`md:flex gap-4 hidden items-center`}>
+        <div className={`lg:flex gap-4 hidden items-center`}>
           {NavbarLinks.map((link) => (
             <div key={link.key} className="navbar-link">
               <Link to={link.path}>{link.title}</Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
       </div>
 
       {navbarOpen && (
-        <div className="md:hidden fixed inset-0 bg-black/80 z-50">
+        <div className="lg:hidden fixed inset-0 bg-black/80 z-50">
           <div className="flex justify-end p-4">
             <div className="cursor-pointer" onClick={toggleNavbar}>
               <svg

@@ -20,6 +20,11 @@ const NavbarLinks = [
     path: "/media",
   },
   {
+    key: "necklace",
+    title: "שרשרת שני",
+    path: "/necklace",
+  },
+  {
     key: "memorial-candles",
     title: "נרות לשני",
     path: "/memorial-candles",

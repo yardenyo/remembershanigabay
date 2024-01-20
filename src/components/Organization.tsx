@@ -8,7 +8,7 @@ const Organization = () => {
           חוט ה<span className="text-red-500">שני</span>
         </div>
         <div className="w-full flex flex-col-reverse lg:flex-row-reverse justify-center items-center p-8 gap-4">
-          <div className="md:w-3/4 w-full flex justify-center items-center">
+          <div className="xl:w-3/4 w-full flex justify-center items-center">
             <div className="w-full space-y-4">
               <div className="xl:text-2xl text-lg">
                 <span className="text-3xl">”</span>
@@ -33,7 +33,7 @@ const Organization = () => {
             </div>
           </div>
           <div className="w-full flex justify-center lg:justify-start items-center">
-            <div className="md:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
+            <div className="xl:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
               <img
                 src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702904393/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2023-12-10_%D7%91%D7%A9%D7%A2%D7%94_18.33.32_575e6838_trpokf.jpg"
                 alt="shani"
