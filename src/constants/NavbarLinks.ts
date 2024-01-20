@@ -25,6 +25,11 @@ const NavbarLinks = [
     path: "/memorial-candles",
   },
   {
+    key: "donate",
+    title: "תרומה לעמותה",
+    path: "/donate",
+  },
+  {
     key: "contact",
     title: "צרו קשר",
     path: "/contact",

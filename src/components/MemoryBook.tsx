@@ -1,6 +1,7 @@
 import Testimonial from "@/components/Testimonial";
-import { Carousel } from "primereact/carousel";
 import Memories from "@/constants/Memories";
+import { Carousel } from "primereact/carousel";
+import { Link } from "react-router-dom";
 
 const MemoryBook = () => {
   return (
@@ -23,6 +24,11 @@ const MemoryBook = () => {
           )}
           dir="ltr"
         ></Carousel>
+        <div className="flex justify-center px-8">
+          <button className="btn btn-primary w-full lg:w-auto">
+            <Link to="/memory-book">כל הזכרונות</Link>
+          </button>
+        </div>
       </div>
     </div>
   );

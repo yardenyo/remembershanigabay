@@ -26,7 +26,7 @@ const HeroSection = () => {
             <Link to="/memory-book">ספר הזכרונות</Link>
           </button>
           <button className="btn btn-secondary">
-            <Link to="/contact">צרו קשר</Link>
+            <Link to="/donate">תרומה לעמותה</Link>
           </button>
         </div>
       </div>
