@@ -43,7 +43,7 @@ const Memories = [
       "בעזרת השם בבוא מן הימים אני מבטיחה לך שאני ואביאל נשב במרפסת ונספר לילדים שלנו איזה דודה הייתה להם.\n" +
       "תבואי לבקר אותי בחלומות\nאני אוהבת אותך ❤️",
     image:
-      "https://res.cloudinary.com/dweltcoxk/image/upload/v1705510330/NI1_1736_qlj4i2.jpg",
+      "https://res.cloudinary.com/dweltcoxk/image/upload/v1705855262/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2024-01-21_%D7%91%D7%A9%D7%A2%D7%94_18.40.16_957cf228_zwi0q1.jpg",
   },
 ];
 
