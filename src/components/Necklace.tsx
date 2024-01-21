@@ -23,7 +23,7 @@ const Necklace = () => {
             <div className="w-full space-y-4">
               <div className="xl:text-2xl text-lg flex flex-col">
                 <div className="font-semibold">
-                  נועה החברה הכי טובה של שני במיזם שנקרא "שרשרת שני" -
+                  נועה החברה הכי טובה של שני במיזם "שרשרת שני" -
                 </div>
                 <div>
                   שני נרצחה כשיצאה לעבוד במסיבת ״הנובה״ בשבת השחורה ב7.10.23.
