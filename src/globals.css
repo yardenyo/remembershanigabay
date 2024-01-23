@@ -12,4 +12,23 @@
 }
 
 @layer base {
+  .navbar-link {
+    @apply text-gray-600 hover:cursor-pointer hover:text-gray-800 hover:font-semibold text-lg;
+  }
+
+  .navbar {
+    @apply bg-gray-100/30 rounded-lg hover:bg-gray-100/40;
+  }
+
+  .btn {
+    @apply p-2 hover:scale-105;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 text-black;
+  }
 }

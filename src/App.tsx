@@ -1,14 +1,16 @@
-function App() {
+import { Routes, Route } from "react-router-dom";
+import Layout from "@/components/Layout";
+import Home from "@/views/Home";
+
+const App = () => {
   return (
-    <>
-      <div className="bg-build-state bg-center w-screen h-screen flex justify-center items-center bg-cover">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold">האתר בבנייה</h1>
-          <p className="text-2xl">לזכרה של שני גבאי ז"ל</p>
-        </div>
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<div>404</div>} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
