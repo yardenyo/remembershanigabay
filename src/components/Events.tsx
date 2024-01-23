@@ -1,4 +1,5 @@
 import Event from "@/components/Event";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const events = [
@@ -36,6 +37,11 @@ const Events = () => {
           .map((event, index) => (
             <Event key={index} {...event} />
           ))}
+      </div>
+      <div className="flex justify-center px-8">
+        <button className="btn btn-primary w-full lg:w-auto">
+          <Link to="/events">כל האירועים</Link>
+        </button>
       </div>
     </div>
   );
