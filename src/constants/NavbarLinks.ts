@@ -1,5 +1,10 @@
 const NavbarLinks = [
   {
+    key: "events",
+    title: "לוח אירועים",
+    path: "/events",
+  },
+  {
     key: "story",
     title: "הסיפור של שני",
     path: "/story",
