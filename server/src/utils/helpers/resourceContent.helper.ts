@@ -14,7 +14,6 @@ import ${capitalizeFirstLetter(
 )}Service from '@/resources/${resourceName.toLowerCase()}/${resourceName.toLowerCase()}.service';
 import {
   authMiddleware,
-  creatorMiddleware,
 } from '@/middleware/auth.middleware';
 import validateDBId from '@/utils/validateDBId';
 
