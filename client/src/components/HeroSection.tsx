@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Layout/Navbar";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
