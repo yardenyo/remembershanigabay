@@ -51,7 +51,7 @@ class AuthController implements Controller {
             const user = await this.AuthService.signup(req.body);
 
             res.json(
-                new SuccessResponse('User created successfully', {
+                new SuccessResponse('משתמש נוצר בהצלחה', {
                     id: user._id,
                     firstName: user.firstName,
                     lastName: user.lastName,
@@ -88,7 +88,7 @@ class AuthController implements Controller {
             });
 
             res.json(
-                new SuccessResponse('User signed in successfully', {
+                new SuccessResponse('משתמש התחבר בהצלחה', {
                     accessToken,
                 }),
             );
@@ -121,7 +121,7 @@ class AuthController implements Controller {
             });
 
             res.json(
-                new SuccessResponse('Token refreshed successfully', {
+                new SuccessResponse('נוצר טוקן חדש בהצלחה', {
                     accessToken,
                 }),
             );
@@ -143,7 +143,7 @@ class AuthController implements Controller {
 
             res.clearCookie('isAuthenticated');
 
-            res.json(new SuccessResponse('User signed out successfully'));
+            res.json(new SuccessResponse('משתמש התנתק בהצלחה'));
         } catch (error: any) {
             next(new HttpException(400, error.message));
         }
@@ -160,7 +160,7 @@ class AuthController implements Controller {
             const { user } = await this.AuthService.getUser(id);
 
             res.json(
-                new SuccessResponse('User fetched successfully', {
+                new SuccessResponse('משתמש נמצא בהצלחה', {
                     user: {
                         firstName: user.firstName,
                         lastName: user.lastName,
