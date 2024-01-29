@@ -18,10 +18,10 @@ class EventController implements Controller {
     }
 
     private initializeRoutes(): void {
-        this.router.get(`${this.path}`, this.getAllEvents);
+        this.router.post(`${this.path}`, this.getAllEvents);
         this.router.get(`${this.path}/:id`, this.getEventById);
         this.router.post(
-            `${this.path}`,
+            `${this.path}/create`,
             authMiddleware,
             validationMiddleware(validate.createEvent),
             this.createEvent,
