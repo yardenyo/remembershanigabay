@@ -6,12 +6,14 @@ import { IEvent } from "@/types/events";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import useToast from "@/hooks/useToast";
+import { confirmDialog, ConfirmDialog } from "primereact/confirmdialog";
+import { useState } from "react";
+import EventDialog from "@/components/EventDialog";
 
 const ManageEvents = () => {
   const payload = {
     sortBy: "createdAt",
     sortOrder: 1,
-    resultsPerPage: 3,
   };
   const { data: response, refetch } = useGetAllEventsQuery(payload);
   const EventsList = response?.data || [];
@@ -20,19 +22,41 @@ const ManageEvents = () => {
 
   const [deleteEvent] = useDeleteEventMutation();
 
+  const [visible, setVisible] = useState(false);
+  const [create, setCreate] = useState(false);
+
   const handleDelete = async (id: string) => {
     try {
       await deleteEvent(id).unwrap();
       refetch();
       toast.toastSuccess("האירוע נמחק בהצלחה");
     } catch (error) {
-      console.log(error);
+      toast.toastError("משהו השתבש, נסה שנית");
     }
   };
 
+  const confirmDelete = (id: string) => {
+    confirmDialog({
+      message: "האם אתה בטוח שברצונך למחוק את האירוע?",
+      header: "מחיקת אירוע",
+      icon: "pi pi-exclamation-triangle",
+      accept: () => handleDelete(id),
+      reject: () => {},
+    });
+  };
+
   const header = (
-    <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-      <span className="text-xl text-900 font-bold">האירועים שלך</span>
+    <div className="flex flex-row-reverse justify-between items-center">
+      <div className="text-xl text-900 font-bold">אירועים</div>
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          setCreate(true);
+          setVisible(true);
+        }}
+      >
+        הוסף אירוע
+      </button>
     </div>
   );
   const footer = `סה"כ ${EventsList.length} אירועים`;
@@ -64,9 +88,15 @@ const ManageEvents = () => {
   };
 
   const DescriptionBodyTemplate = (rowData: IEvent) => {
+    const truncatedDescription = rowData.description.substring(0, 50);
+
     return (
       <span className="flex justify-end">
-        ...{rowData.description.substring(0, 50)}
+        {truncatedDescription.length < rowData.description.length ? (
+          <>...{truncatedDescription}</>
+        ) : (
+          truncatedDescription
+        )}
       </span>
     );
   };
@@ -84,11 +114,19 @@ const ManageEvents = () => {
       <div className="flex justify-end gap-4">
         <button
           className="btn btn-danger"
-          onClick={() => handleDelete(rowData._id)}
+          onClick={() => confirmDelete(rowData._id)}
         >
           מחק
         </button>
-        <button className="btn btn-primary">ערוך</button>
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            setCreate(false);
+            setVisible(true);
+          }}
+        >
+          ערוך
+        </button>
       </div>
     );
   };
@@ -122,6 +160,13 @@ const ManageEvents = () => {
         <Column field="date" header="תאריך" body={DateBodyTemplate} />
         <Column field="title" header="שם האירוע" body={TitleBodyTemplate} />
       </DataTable>
+      <EventDialog
+        create={create}
+        visible={visible}
+        setVisible={setVisible}
+        refetch={refetch}
+      />
+      <ConfirmDialog />
     </div>
   );
 };
