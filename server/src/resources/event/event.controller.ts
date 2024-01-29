@@ -35,7 +35,6 @@ class EventController implements Controller {
         this.router.delete(
             `${this.path}/:id`,
             authMiddleware,
-            validationMiddleware(validate.deleteEvent),
             this.deleteEvent,
         );
     }

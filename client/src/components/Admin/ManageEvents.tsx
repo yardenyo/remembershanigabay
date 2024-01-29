@@ -1,7 +1,11 @@
-import { useGetAllEventsQuery } from "@/features/events/eventsApiSlice";
+import {
+  useGetAllEventsQuery,
+  useDeleteEventMutation,
+} from "@/features/events/eventsApiSlice";
 import { IEvent } from "@/types/events";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import useToast from "@/hooks/useToast";
 
 const ManageEvents = () => {
   const payload = {
@@ -9,8 +13,22 @@ const ManageEvents = () => {
     sortOrder: 1,
     resultsPerPage: 3,
   };
-  const { data: response } = useGetAllEventsQuery(payload);
+  const { data: response, refetch } = useGetAllEventsQuery(payload);
   const EventsList = response?.data || [];
+
+  const toast = useToast();
+
+  const [deleteEvent] = useDeleteEventMutation();
+
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteEvent(id).unwrap();
+      refetch();
+      toast.toastSuccess("האירוע נמחק בהצלחה");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const header = (
     <div className="flex flex-wrap align-items-center justify-content-between gap-2">
@@ -64,7 +82,12 @@ const ManageEvents = () => {
   const ActionBodyTemplate = (rowData: IEvent) => {
     return (
       <div className="flex justify-end gap-4">
-        <button className="btn btn-danger">מחק</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => handleDelete(rowData._id)}
+        >
+          מחק
+        </button>
         <button className="btn btn-primary">ערוך</button>
       </div>
     );
