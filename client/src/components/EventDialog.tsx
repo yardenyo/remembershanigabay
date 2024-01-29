@@ -27,7 +27,13 @@ const EventDialog = ({
   const toast = useToast();
   const [createEvent] = useCreateEventMutation();
   const [updateEvent] = useUpdateEventMutation();
-  const { data: eventData, isLoading } = useGetEventQuery(eventID || "");
+  const {
+    data: eventData,
+    refetch: refetchEvent,
+    isLoading,
+  } = useGetEventQuery(eventID || "", {
+    skip: !eventID,
+  });
 
   const initialValues = {
     title: eventData?.data.title || "",
@@ -67,6 +73,7 @@ const EventDialog = ({
 
       toast.toastSuccess(response.message);
       refetch && refetch();
+      refetchEvent && refetchEvent();
       formik.resetForm();
       setVisible(false);
     } catch (e: unknown) {
@@ -75,7 +82,16 @@ const EventDialog = ({
   };
 
   const formik = useFormik({
-    initialValues,
+    initialValues: !create
+      ? initialValues
+      : {
+          title: "",
+          date: "",
+          time: "",
+          location: "",
+          description: "",
+          image: "",
+        },
     validationSchema: Yup.object({
       title: Yup.string().required("שדה חובה"),
       date: Yup.string().required("שדה חובה"),
