@@ -24,6 +24,7 @@ const ManageEvents = () => {
 
   const [visible, setVisible] = useState(false);
   const [create, setCreate] = useState(false);
+  const [eventID, setEventID] = useState("");
 
   const handleDelete = async (id: string) => {
     try {
@@ -122,6 +123,7 @@ const ManageEvents = () => {
           className="btn btn-primary"
           onClick={() => {
             setCreate(false);
+            setEventID(rowData._id);
             setVisible(true);
           }}
         >
@@ -165,6 +167,7 @@ const ManageEvents = () => {
         visible={visible}
         setVisible={setVisible}
         refetch={refetch}
+        eventID={eventID}
       />
       <ConfirmDialog />
     </div>
