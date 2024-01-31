@@ -72,8 +72,11 @@ const ManageEvents = () => {
     return (
       <div className="flex justify-end">
         <img
-          className="w-20 h-20 rounded-md"
-          src={rowData.image}
+          className="w-20 h-20 rounded-md border-2 border-gray-300"
+          src={
+            rowData.image ||
+            "https://res.cloudinary.com/dweltcoxk/image/upload/v1699290993/assets/zb3phjr1bvhgns50gird.png"
+          }
           alt={rowData.title}
         />
       </div>

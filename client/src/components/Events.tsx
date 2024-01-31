@@ -5,8 +5,8 @@ import { IEvent } from "@/types/events";
 
 const Events = () => {
   const payload = {
-    sortBy: "createdAt",
-    sortOrder: 1,
+    sortBy: "date",
+    sortOrder: 0,
     resultsPerPage: 3,
   };
   const { data: response } = useGetAllEventsQuery(payload);

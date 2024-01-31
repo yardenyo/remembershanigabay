@@ -1,13 +1,15 @@
-import { Dialog } from "primereact/dialog";
-import { useFormik } from "formik";
-import useToast from "@/hooks/useToast";
-import * as Yup from "yup";
 import InputField from "@/components/Global/InputField";
 import {
   useCreateEventMutation,
-  useUpdateEventMutation,
   useGetEventQuery,
+  useUpdateEventMutation,
 } from "@/features/events/eventsApiSlice";
+import useToast from "@/hooks/useToast";
+import { useFormik } from "formik";
+import { useState, useEffect } from "react";
+import { Dialog } from "primereact/dialog";
+import * as Yup from "yup";
+import UploadFileField from "./Global/UploadFileField";
 
 type Props = {
   create: boolean;
@@ -25,15 +27,35 @@ const EventDialog = ({
   eventID,
 }: Props) => {
   const toast = useToast();
+  const [image, setImage] = useState<File | null>(null);
   const [createEvent] = useCreateEventMutation();
   const [updateEvent] = useUpdateEventMutation();
+
+  useEffect(() => {
+    if (image) {
+      const data = new FormData();
+      data.append("file", image);
+      data.append("upload_preset", "events");
+      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+      fetch(import.meta.env.VITE_CLOUDINARY_URL, {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          formik.setFieldValue("image", data.url);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [image]);
+
   const {
     data: eventData,
     refetch: refetchEvent,
     isLoading,
-  } = useGetEventQuery(eventID || "", {
-    skip: !eventID,
-  });
+  } = useGetEventQuery(eventID || "");
 
   const initialValues = {
     title: eventData?.data.title || "",
@@ -50,7 +72,7 @@ const EventDialog = ({
     time: string;
     location: string;
     description: string;
-    image: string;
+    image?: string;
   }) => {
     try {
       const payload = {
@@ -77,6 +99,7 @@ const EventDialog = ({
       formik.resetForm();
       setVisible(false);
     } catch (e: unknown) {
+      console.log(e);
       toast.toastError("משהו השתבש, נסה שנית");
     }
   };
@@ -98,7 +121,6 @@ const EventDialog = ({
       time: Yup.string().required("שדה חובה"),
       location: Yup.string().required("שדה חובה"),
       description: Yup.string().required("שדה חובה"),
-      image: Yup.string().required("שדה חובה"),
     }),
     onSubmit: (values: {
       title: string;
@@ -106,7 +128,6 @@ const EventDialog = ({
       time: string;
       location: string;
       description: string;
-      image: string;
     }) => {
       handleSubmit(values);
     },
@@ -117,10 +138,14 @@ const EventDialog = ({
     <Dialog
       header={create ? "הוספת אירוע" : "עריכת אירוע"}
       visible={visible}
-      onHide={() => setVisible(false)}
+      onHide={() => {
+        formik.resetForm();
+        setVisible(false);
+      }}
       footer={
         <div className="flex justify-end">
           <button
+            type="button"
             className="btn btn-primary"
             onClick={() => formik.handleSubmit()}
           >
@@ -130,7 +155,7 @@ const EventDialog = ({
       }
     >
       {isLoading ? (
-        <div>Loading...</div>
+        <div>טוען...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InputField
@@ -183,15 +208,16 @@ const EventDialog = ({
             errors={formik.errors.description}
             touched={formik.touched.description}
           />
-          <InputField
+          <UploadFileField
             id="image"
             name="image"
-            type="text"
+            type="file"
             label="תמונה"
-            value={formik.values.image}
-            onChange={formik.handleChange}
-            errors={formik.errors.image}
-            touched={formik.touched.image}
+            onChange={(e) => {
+              if (e.target.files) {
+                setImage(e.target.files[0]);
+              }
+            }}
           />
         </div>
       )}
