@@ -84,11 +84,14 @@ const ManageEvents = () => {
   };
 
   const DateBodyTemplate = (rowData: IEvent) => {
-    return (
-      <span className="flex justify-end">
-        {new Date(rowData.date).toLocaleDateString()}
-      </span>
-    );
+    const eventDate = new Date(rowData.date);
+    const formattedDate = eventDate.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+
+    return <span className="flex justify-end">{formattedDate}</span>;
   };
 
   const DescriptionBodyTemplate = (rowData: IEvent) => {

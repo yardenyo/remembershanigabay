@@ -136,6 +136,7 @@ const EventDialog = ({
 
   return (
     <Dialog
+      className="w-full p-4 lg:w-1/3 lg:p-0"
       header={create ? "הוספת אירוע" : "עריכת אירוע"}
       visible={visible}
       onHide={() => {
