@@ -13,11 +13,12 @@ const Necklace = () => {
   ];
 
   return (
-    <div className="border-t border-black border-opacity-5">
+    <section>
       <div className="flex flex-col py-8 container mx-auto">
         <div className="title text-center text-3xl font-semibold">
           שרשרת <span className="text-red-500">שני</span>
         </div>
+        <div className="title-underline" />
         <div className="w-full flex flex-col-reverse lg:flex-row-reverse justify-center items-center p-8 gap-4">
           <div className="xl:w-3/4 w-full flex justify-center items-center">
             <div className="w-full space-y-4">
@@ -67,7 +68,7 @@ const Necklace = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
