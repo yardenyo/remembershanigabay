@@ -6,7 +6,7 @@ const createEvent = Joi.object({
     time: Joi.string().required(),
     location: Joi.string().required(),
     description: Joi.string().required(),
-    image: Joi.string().required(),
+    image: Joi.string().allow(null, ''),
 });
 
 const updateEvent = Joi.object({
