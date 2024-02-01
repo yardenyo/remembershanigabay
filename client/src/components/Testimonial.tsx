@@ -29,7 +29,7 @@ const Testimonial = ({ name, title, quote, image }: Props) => {
         <div className="flex flex-col gap-2">
           <div className="text-xl font-semibold">{name}</div>
           <div className="text-lg font-semibold">{title}</div>
-          <div className="text-base h-44 overflow-y-scroll">{quote}</div>
+          <div className="text-base h-44 overflow-y-scroll pl-4">{quote}</div>
         </div>
       </div>
     </div>
