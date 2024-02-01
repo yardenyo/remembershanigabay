@@ -8,6 +8,14 @@ type Props = {
 };
 
 const Event = ({ title, description, date, time, location, image }: Props) => {
+  const eventDate = new Date(date);
+
+  const formattedDate = eventDate.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
   return (
     <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md hover:scale-105 transition duration-500 ease-in-out w-full">
       <img
@@ -26,7 +34,7 @@ const Event = ({ title, description, date, time, location, image }: Props) => {
         </div>
         <div className="flex items-center">
           <p className="text-gray-700 font-bold">
-            {new Date(date).toLocaleDateString()} בשעה {time}
+            {formattedDate} בשעה {time}
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 import { Dialog } from "primereact/dialog";
 import * as Yup from "yup";
-import UploadFileField from "./Global/UploadFileField";
+import UploadFileField from "@/components/Global/UploadFileField";
 
 type Props = {
   create: boolean;
@@ -86,7 +86,7 @@ const EventDialog = ({
 
       const mutationParams = {
         id: eventID,
-        payload: payload,
+        payload,
       };
 
       const response = create
@@ -136,6 +136,7 @@ const EventDialog = ({
 
   return (
     <Dialog
+      className="w-full p-4 lg:w-1/3 lg:p-0"
       header={create ? "הוספת אירוע" : "עריכת אירוע"}
       visible={visible}
       onHide={() => {
