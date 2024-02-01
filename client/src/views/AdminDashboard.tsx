@@ -1,5 +1,6 @@
 import { useSignoutMutation } from "@/features/auth/authApiSlice";
 import ManageEvents from "@/components/Admin/ManageEvents";
+import ManageMemories from "@/components/Admin/ManageMemories";
 
 const AdminDashboard = () => {
   const [signout] = useSignoutMutation();
@@ -21,6 +22,7 @@ const AdminDashboard = () => {
       </div>
       <div className="w-full flex flex-col items-center justify-center gap-4 py-4">
         <ManageEvents />
+        <ManageMemories />
       </div>
     </div>
   );

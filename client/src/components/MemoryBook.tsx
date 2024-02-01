@@ -1,9 +1,16 @@
 import Testimonial from "@/components/Testimonial";
-import Memories from "@/constants/Memories";
 import { Carousel } from "primereact/carousel";
 import { Link } from "react-router-dom";
+import { useGetAllMemoriesQuery } from "@/features/memories/memoriesApiSlice";
+import { IMemory } from "@/types/memories";
 
 const MemoryBook = () => {
+  const payload = {
+    sortBy: "date",
+    sortOrder: 0,
+  };
+  const { data: response } = useGetAllMemoriesQuery(payload);
+  const MemoriesList = response?.data || [];
   return (
     <div className="border-t border-black border-opacity-5">
       <div className="flex flex-col py-8 container mx-auto">
@@ -11,7 +18,7 @@ const MemoryBook = () => {
           ספר הזכרונות
         </div>
         <Carousel
-          value={Memories}
+          value={MemoriesList}
           numScroll={1}
           circular
           className="mt-8"

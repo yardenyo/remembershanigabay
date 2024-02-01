@@ -8,7 +8,7 @@ import { Column } from "primereact/column";
 import useToast from "@/hooks/useToast";
 import { confirmDialog, ConfirmDialog } from "primereact/confirmdialog";
 import { useState } from "react";
-import EventDialog from "@/components/EventDialog";
+import EventDialog from "@/components/Dialogs/EventDialog";
 
 const ManageEvents = () => {
   const payload = {

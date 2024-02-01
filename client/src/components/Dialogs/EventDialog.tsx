@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 import { Dialog } from "primereact/dialog";
 import * as Yup from "yup";
-import UploadFileField from "./Global/UploadFileField";
+import UploadFileField from "@/components/Global/UploadFileField";
 
 type Props = {
   create: boolean;

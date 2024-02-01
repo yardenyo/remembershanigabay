@@ -5,11 +5,17 @@ import validateEnv from '@/utils/validateEnv';
 import authController from '@/resources/auth/auth.controller';
 import userController from '@/resources/user/user.controller';
 import eventController from '@/resources/event/event.controller';
+import memoryController from '@/resources/memory/memory.controller';
 
 validateEnv();
 
 const app = new App(
-    [new authController(), new userController(), new eventController()],
+    [
+        new authController(),
+        new userController(),
+        new eventController(),
+        new memoryController(),
+    ],
     Number(process.env.PORT),
 );
 
