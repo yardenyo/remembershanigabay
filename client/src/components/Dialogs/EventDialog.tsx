@@ -86,7 +86,7 @@ const EventDialog = ({
 
       const mutationParams = {
         id: eventID,
-        payload: payload,
+        payload,
       };
 
       const response = create

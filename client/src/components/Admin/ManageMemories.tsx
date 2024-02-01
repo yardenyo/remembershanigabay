@@ -114,6 +114,7 @@ const ManageMemories = () => {
         <button
           className="btn btn-primary"
           onClick={() => {
+            setCreate(false);
             setMemoryID(rowData._id);
             setVisible(true);
           }}
@@ -147,6 +148,13 @@ const ManageMemories = () => {
         <Column field="title" header="קרבה" body={TitleBodyTemplate} />
         <Column field="name" header="שם" body={NameBodyTemplate} />
       </DataTable>
+      <MemoryDialog
+        create={create}
+        visible={visible}
+        setVisible={setVisible}
+        refetch={refetch}
+        memoryID={memoryID}
+      />
     </div>
   );
 };
