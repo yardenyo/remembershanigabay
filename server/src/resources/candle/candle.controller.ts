@@ -74,7 +74,7 @@ class CandleController implements Controller {
     ): Promise<void> => {
         try {
             const candle = await this.candleService.createCandle(req.body);
-            res.json(new SuccessResponse('נר נוצר בהצלחה', candle));
+            res.json(new SuccessResponse('נר נדלק בהצלחה', candle));
         } catch (error: any) {
             next(new HttpException(400, error.message));
         }

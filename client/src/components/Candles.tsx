@@ -2,11 +2,16 @@ import Lottie from "react-lottie";
 import Candle from "@/lotties/candle.json";
 import { Link } from "react-router-dom";
 import { useGetAllCandlesQuery } from "@/features/candles/candlesApiSlice";
+import CreateCandle from "@/components/CreateCandle";
 
-const Candles = () => {
+type Props = {
+  view: boolean;
+};
+
+const Candles = ({ view = false }: Props) => {
   const payload = {
     sortBy: "createdAt",
-    sortOrder: 1,
+    sortOrder: 0,
   };
   const { data: response } = useGetAllCandlesQuery(payload);
   const candles = response?.data || [];
@@ -35,6 +40,7 @@ const Candles = () => {
           נרות <span className="text-red-500">לשני</span>
         </div>
         <div className="title-underline" />
+        {view && <CreateCandle />}
         <div className="flex flex-col gap-4 py-8">
           {candles.map(
             (candle: { name: string; createdAt: string; text: string }) => (
@@ -55,11 +61,13 @@ const Candles = () => {
             )
           )}
         </div>
-        <div className="flex justify-center">
-          <button className="btn btn-primary">
-            <Link to="/memorial-candles">הדלקת נר</Link>
-          </button>
-        </div>
+        {!view && (
+          <div className="flex justify-center">
+            <button className="btn btn-primary">
+              <Link to="/memorial-candles">הדלקת נר</Link>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
