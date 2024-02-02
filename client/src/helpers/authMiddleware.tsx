@@ -3,7 +3,7 @@ import { useCookies } from "react-cookie";
 import { useGetUserQuery } from "@/features/auth/authApiSlice";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "@/features/auth/authSlice";
-import NoTimeForDrama from "@/components/NoTimeForDrama";
+import NoTimeForDrama from "@/components/Layout/NoTimeForDrama";
 
 type Props = {
   children: React.ReactElement;
