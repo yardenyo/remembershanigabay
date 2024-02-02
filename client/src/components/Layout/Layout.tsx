@@ -1,7 +1,7 @@
-import HeroSection from "@/components/HeroSection";
-import BackgroundSound from "@/components/BackgroundSound";
-import ToTop from "@/components/ToTop";
-import NoTimeForDrama from "@/components/NoTimeForDrama";
+import HeroSection from "@/components/Layout/HeroSection";
+import BackgroundSound from "@/components/Layout/BackgroundSound";
+import ToTop from "@/components/Layout/ToTop";
+import NoTimeForDrama from "@/components/Layout/NoTimeForDrama";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
