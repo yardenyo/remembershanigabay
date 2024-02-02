@@ -13,7 +13,7 @@ const Necklace = () => {
   ];
 
   return (
-    <section>
+    <section id="necklace">
       <div className="flex flex-col py-8 container mx-auto">
         <div className="title text-center text-3xl font-semibold">
           שרשרת <span className="text-red-500">שני</span>

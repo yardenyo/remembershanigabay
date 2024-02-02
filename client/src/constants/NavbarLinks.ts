@@ -27,7 +27,7 @@ const NavbarLinks = [
   {
     key: "necklace",
     title: "שרשרת שני",
-    path: "/necklace",
+    path: "/#necklace",
   },
   {
     key: "memorial-candles",
@@ -37,12 +37,12 @@ const NavbarLinks = [
   {
     key: "donate",
     title: "תרומה לעמותה",
-    path: "/donate",
+    path: "/#donate",
   },
   {
     key: "contact",
     title: "צרו קשר",
-    path: "/contact",
+    path: "/#contact",
   },
 ];
 
