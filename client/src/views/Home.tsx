@@ -4,6 +4,7 @@ import Organization from "@/components/Organization";
 import MemoryBook from "@/components/MemoryBook";
 import Media from "@/components/Media";
 import Necklace from "@/components/Necklace";
+import Candles from "@/components/Candles";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <MemoryBook />
       <Media />
       <Necklace />
+      <Candles />
     </main>
   );
 };
