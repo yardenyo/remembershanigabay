@@ -4,22 +4,33 @@ import { Paginator } from "primereact/paginator";
 
 const Candles = () => {
   const [first, setFirst] = useState(0);
-  const [rows, setRows] = useState(10);
+  const [rows, setRows] = useState(5);
+  const [records, setRecords] = useState(0);
+  const [pageNumber, setPageNumber] = useState(0);
 
-  const onPageChange = (event: { first: number; rows: number }) => {
-    console.log(event);
+  const onPageChange = (event: {
+    first: number;
+    rows: number;
+    page: number;
+  }) => {
     setFirst(event.first);
     setRows(event.rows);
+    setPageNumber(event.page + 1);
   };
 
   return (
     <div>
-      <CandlesComponent view />
+      <CandlesComponent
+        view
+        rows={rows}
+        pageNumber={pageNumber}
+        setRecords={setRecords}
+      />
       <Paginator
         first={first}
         rows={rows}
-        totalRecords={100}
-        rowsPerPageOptions={[10, 20, 50]}
+        totalRecords={records}
+        rowsPerPageOptions={[5, 10, 20, 50]}
         onPageChange={onPageChange}
         dir="ltr"
       />

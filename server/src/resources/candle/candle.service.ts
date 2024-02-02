@@ -6,7 +6,10 @@ import ConvertResponse from '@/utils/helpers/convertresponse.helper';
 class CandleService {
     private candle = CandleModel;
 
-    public async getAllCandles(body: PostBody): Promise<Candle[]> {
+    public async getAllCandles(body: PostBody): Promise<{
+        candles: Candle[];
+        count: number;
+    }> {
         try {
             const { sort, skip, limit, searchFilter } =
                 await ConvertResponse(body);
@@ -17,7 +20,9 @@ class CandleService {
                 .skip(skip)
                 .limit(limit);
 
-            return candles;
+            const count = await this.candle.countDocuments();
+
+            return { candles, count };
         } catch (error) {
             throw new Error('שגיאה בטעינת נרות');
         }

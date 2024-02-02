@@ -3,19 +3,30 @@ import Candle from "@/lotties/candle.json";
 import { Link } from "react-router-dom";
 import { useGetAllCandlesQuery } from "@/features/candles/candlesApiSlice";
 import CreateCandle from "@/components/CreateCandle";
+import { useEffect } from "react";
 
 type Props = {
   view: boolean;
+  rows?: number;
+  pageNumber?: number;
+  setRecords?: (records: number) => void;
 };
 
-const Candles = ({ view = false }: Props) => {
+const Candles = ({ view = false, rows, pageNumber, setRecords }: Props) => {
   const payload = {
     sortBy: "createdAt",
     sortOrder: 0,
-    resultsPerPage: !view ? 3 : 5,
+    resultsPerPage: !view ? 3 : rows || 5,
+    page: pageNumber || 1,
   };
   const { data: response, refetch } = useGetAllCandlesQuery(payload);
-  const candles = response?.data || [];
+  const candles = response?.data?.candles || [];
+
+  useEffect(() => {
+    if (response) {
+      setRecords && setRecords(response?.data?.count);
+    }
+  }, [response, setRecords]);
 
   const defaultOptions = {
     loop: true,

@@ -45,8 +45,12 @@ class CandleController implements Controller {
         next: NextFunction,
     ): Promise<void> => {
         try {
-            const candles = await this.candleService.getAllCandles(req.body);
-            res.json(new SuccessResponse('נרות נטענו בהצלחה', candles));
+            const { candles, count } = await this.candleService.getAllCandles(
+                req.body,
+            );
+            res.json(
+                new SuccessResponse('נרות נטענו בהצלחה', { candles, count }),
+            );
         } catch (error: any) {
             next(new HttpException(400, error.message));
         }
