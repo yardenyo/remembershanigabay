@@ -4,7 +4,11 @@ import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const CreateCandle = () => {
+type Props = {
+  refetch: () => void;
+};
+
+const CreateCandle = ({ refetch }: Props) => {
   const toast = useToast();
   const [createCandle] = useCreateCandleMutation();
 
@@ -21,6 +25,7 @@ const CreateCandle = () => {
   const handleSubmit = async (values: { name: string; text: string }) => {
     try {
       const response = await createCandle(values).unwrap();
+      refetch();
       toast.toastSuccess(response.message);
       formik.resetForm();
     } catch (e: unknown) {
@@ -38,7 +43,7 @@ const CreateCandle = () => {
   return (
     <div className="flex flex-col gap-4 p-8">
       <form
-        className="flex flex-col gap-4 w-1/3 p-8 mx-auto bg-white rounded-lg shadow-lg"
+        className="flex flex-col gap-4 p-8 mx-auto bg-white rounded-lg shadow-lg w-full lg:w-1/2"
         onSubmit={formik.handleSubmit}
         noValidate
       >
@@ -55,14 +60,14 @@ const CreateCandle = () => {
         <InputField
           id="text"
           name="text"
-          type="text"
+          type="textarea"
           label="כל שעל הלב"
           value={formik.values.text}
           onChange={formik.handleChange}
           errors={formik.errors.text}
           touched={formik.touched.text}
         />
-        <button type="submit" className="btn btn-primary w-1/3">
+        <button type="submit" className="btn btn-primary w-full lg:w-1/2">
           הדלקת נר
         </button>
       </form>
