@@ -3,6 +3,7 @@ import RequireAuth from "@/components/Layout/RequireAuth";
 import { selectCurrentUser } from "@/features/auth/authSlice";
 import AdminDashboard from "@/views/AdminDashboard";
 import Home from "@/views/Home";
+import Events from "@/views/Events";
 import Candles from "@/views/Candles";
 import SignIn from "@/views/SignIn";
 import { useCookies } from "react-cookie";
@@ -18,6 +19,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="events" element={<Events />} />
         <Route path="memorial-candles" element={<Candles />} />
         {!isAuthenticated && <Route path="auth/signin" element={<SignIn />} />}
         <Route element={<RequireAuth />}>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import NavbarLinks from "@/constants/NavbarLinks";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className="container mx-auto p-2 navbar">
       <div className="flex justify-between items-center">
         <div className="text-2xl font-semibold navbar-link">
-          <Link to="/">
+          <Link smooth to="/">
             דף הבית של <span className="text-red-500">שני</span>
           </Link>
         </div>
@@ -32,7 +32,9 @@ const Navbar = () => {
         <div className={`lg:flex gap-4 hidden items-center`}>
           {NavbarLinks.map((link) => (
             <div key={link.key} className="navbar-link">
-              <Link to={link.path}>{link.title}</Link>
+              <Link smooth to={link.path}>
+                {link.title}
+              </Link>
             </div>
           ))}
         </div>
@@ -62,6 +64,7 @@ const Navbar = () => {
               <Link
                 key={link.key}
                 to={link.path}
+                smooth
                 className="navbar-link py-2 text-white"
                 onClick={toggleNavbar}
               >

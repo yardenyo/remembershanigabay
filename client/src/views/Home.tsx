@@ -5,6 +5,7 @@ import MemoryBook from "@/components/MemoryBook";
 import Media from "@/components/Media";
 import Necklace from "@/components/Necklace";
 import Candles from "@/components/Candles";
+import Donation from "@/components/Donation";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Media />
       <Necklace />
       <Candles />
+      <Donation />
     </main>
   );
 };

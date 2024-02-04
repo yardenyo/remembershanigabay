@@ -6,7 +6,7 @@ import CreateCandle from "@/components/CreateCandle";
 import { useEffect } from "react";
 
 type Props = {
-  view: boolean;
+  view?: boolean;
   rows?: number;
   pageNumber?: number;
   setRecords?: (records: number) => void;
