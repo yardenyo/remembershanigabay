@@ -6,7 +6,10 @@ import ConvertResponse from '@/utils/helpers/convertresponse.helper';
 class EventService {
     private event = EventModel;
 
-    public async getAllEvents(body: PostBody): Promise<Event[]> {
+    public async getAllEvents(body: PostBody): Promise<{
+        events: Event[];
+        count: number;
+    }> {
         try {
             const { sort, skip, limit, searchFilter } =
                 await ConvertResponse(body);
@@ -17,7 +20,9 @@ class EventService {
                 .skip(skip)
                 .limit(limit);
 
-            return events;
+            const count = await this.event.countDocuments();
+
+            return { events, count };
         } catch (error) {
             throw new Error('שגיאה בטעינת אירועים');
         }

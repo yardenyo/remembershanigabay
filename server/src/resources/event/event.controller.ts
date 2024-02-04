@@ -45,8 +45,12 @@ class EventController implements Controller {
         next: NextFunction,
     ): Promise<void> => {
         try {
-            const events = await this.eventService.getAllEvents(req.body);
-            res.json(new SuccessResponse('אירועים נטענו בהצלחה', events));
+            const { events, count } = await this.eventService.getAllEvents(
+                req.body,
+            );
+            res.json(
+                new SuccessResponse('אירועים נטענו בהצלחה', { events, count }),
+            );
         } catch (error: any) {
             next(new HttpException(400, error.message));
         }

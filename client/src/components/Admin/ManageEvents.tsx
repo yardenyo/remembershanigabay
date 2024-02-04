@@ -16,7 +16,7 @@ const ManageEvents = () => {
     sortOrder: 1,
   };
   const { data: response, refetch } = useGetAllEventsQuery(payload);
-  const EventsList = response?.data || [];
+  const EventsList = response?.data?.events || [];
 
   const toast = useToast();
 
