@@ -1,5 +1,6 @@
 import Navbar from "@/components/Layout/Navbar";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const HeroSection = () => {
   return (
@@ -26,7 +27,9 @@ const HeroSection = () => {
             <Link to="/memory-book">ספר הזכרונות</Link>
           </button>
           <button className="btn btn-secondary">
-            <Link to="/donate">תרומה לעמותה</Link>
+            <HashLink smooth to="/#donate">
+              תרומה לעמותה
+            </HashLink>
           </button>
         </div>
       </div>
