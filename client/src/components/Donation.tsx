@@ -6,48 +6,49 @@ const Donation = () => {
           תרומה לעמותה
         </div>
         <div className="title-underline" />
-        <div className="flex flex-col gap-4 py-8">
-          <div className="flex flex-col justify-start p-4 gap-2 lg:gap-0 text-center lg:text-right">
-            <div className="text-2xl font-semibold text-red-500">
-              עזרו לנו להנציח את שני גבאי ז"ל
-            </div>
-            <div className="xl:text-2xl text-lg flex flex-col gap-8">
-              <div className="wrapper font-semibold">
-                <div>
-                  עמותת "חוט השני" מקיימת פעילות חינוכית וחברתית בזיכרון שני
-                  גבאי ז"ל.
-                </div>
-                <div>
-                  תרומתכם תאפשר לנו להמשיך ולהפיץ את המסר של שני ולהנציח אותו.
-                </div>
+        <div className="w-full flex flex-col-reverse lg:flex-row justify-center items-center p-8 gap-4">
+          <div className="xl:w-3/4 w-full flex justify-center items-center">
+            <div className="w-full space-y-4">
+              <div className="text-2xl font-semibold text-red-500 text-center lg:text-right">
+                עזרו לנו להנציח את שני גבאי ז"ל
               </div>
-              <div className="wrapper flex flex-col gap-4">
-                <button className="btn btn-primary w-full lg:w-1/5">
-                  <a
-                    href="https://www.paypal.com/paypalme/RememberShaniGabay"
-                    target="_blank"
-                  >
+              <div className="xl:text-2xl text-lg flex flex-col gap-8 text-center lg:text-right">
+                <div className="wrapper font-semibold">
+                  <div>
+                    עמותת "חוט השני" מקיימת פעילות חינוכית וחברתית בזיכרון שני
+                    גבאי ז"ל.
+                  </div>
+                  <div>
+                    תרומתכם תאפשר לנו להמשיך ולהפיץ את המסר של שני ולהנציח אותו.
+                  </div>
+                </div>
+                <div className="wrapper flex flex-col gap-4">
+                  <button className="btn btn-primary w-full lg:w-1/2">
                     תרומה ב-PayPal
-                  </a>
-                </button>
-                <button className="btn btn-primary w-full lg:w-1/5">
-                  <a
-                    href="https://payboxapp.page.link/URaKqFphJ3bV4HHv6"
-                    target="_blank"
-                  >
+                  </button>
+                  <button className="btn btn-primary w-full lg:w-1/2">
                     תרומה ב-PayBox
-                  </a>
-                </button>
-              </div>
-              <div className="wrapper">
-                <div className="font-semibold">העברה בנקאית:</div>
-                <div>בנק לאומי סניף 912</div>
-                <div>מספר חשבון: 377100/73</div>
-                <div>
-                  עמותת חוט השני הינה עמותה רשומה מס' 580409191, תרומה ל"חוט
-                  השני" מקנה זיכוי מס על פי סעיף 46 (א) לפקודת מס הכנסה.
+                  </button>
+                </div>
+                <div className="wrapper">
+                  <div className="font-semibold">העברה בנקאית:</div>
+                  <div>בנק לאומי סניף 912</div>
+                  <div>מספר חשבון: 377100/73</div>
+                  <div>
+                    עמותת חוט השני הינה עמותה רשומה מס' 580409191, תרומה ל"חוט
+                    השני" מקנה זיכוי מס על פי סעיף 46 (א) לפקודת מס הכנסה.
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="w-full flex justify-center lg:justify-end items-center">
+            <div className="xl:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
+              <img
+                src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707073043/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2024-02-04_%D7%91%D7%A9%D7%A2%D7%94_20.33.24_9815fe6f_gwxgbb.jpg"
+                alt="donation"
+                className="p-4 hover:scale-105 transition duration-500 ease-in-out"
+              />
             </div>
           </div>
         </div>
