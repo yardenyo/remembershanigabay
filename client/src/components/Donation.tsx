@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Donation = () => {
   return (
     <section>
@@ -24,10 +26,20 @@ const Donation = () => {
                 </div>
                 <div className="wrapper flex flex-col gap-4">
                   <button className="btn btn-primary w-full lg:w-1/2">
-                    תרומה ב-PayPal
+                    <Link
+                      to="https://www.paypal.com/paypalme/RememberShaniGabay"
+                      target="_blank"
+                    >
+                      תרומה ב-PayPal
+                    </Link>
                   </button>
                   <button className="btn btn-primary w-full lg:w-1/2">
-                    תרומה ב-PayBox
+                    <Link
+                      to="https://payboxapp.page.link/URaKqFphJ3bV4HHv6"
+                      target="_blank"
+                    >
+                      תרומה ב-PayBox
+                    </Link>
                   </button>
                 </div>
                 <div className="wrapper">

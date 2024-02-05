@@ -22,7 +22,6 @@ class CandleController implements Controller {
         this.router.get(`${this.path}/:id`, this.getCandleById);
         this.router.post(
             `${this.path}/create`,
-            authMiddleware,
             validationMiddleware(validate.createCandle),
             this.createCandle,
         );

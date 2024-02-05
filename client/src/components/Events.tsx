@@ -6,9 +6,9 @@ import { useEffect } from "react";
 
 type Props = {
   view?: boolean;
-  rows: number;
-  pageNumber: number;
-  setRecords: (value: number) => void;
+  rows?: number;
+  pageNumber?: number;
+  setRecords?: (value: number) => void;
 };
 
 const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
