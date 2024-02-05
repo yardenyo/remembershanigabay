@@ -45,7 +45,7 @@ const Donation = () => {
           <div className="w-full flex justify-center lg:justify-end items-center">
             <div className="xl:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
               <img
-                src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707073043/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2024-02-04_%D7%91%D7%A9%D7%A2%D7%94_20.33.24_9815fe6f_gwxgbb.jpg"
+                src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707153749/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp__2024-02-04_%D7%91%D7%A9%D7%A2%D7%94_20.33.24_9815fe6f_inme2o.jpg"
                 alt="donation"
                 className="p-4 hover:scale-105 transition duration-500 ease-in-out"
               />
