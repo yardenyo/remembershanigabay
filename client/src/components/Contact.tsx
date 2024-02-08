@@ -2,6 +2,7 @@ import InputField from "@/components/Global/InputField";
 import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const toast = useToast();
@@ -26,7 +27,25 @@ const Contact = () => {
     subject: string;
     message: string;
   }) => {
-    console.log(values);
+    try {
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        reply_to: values.email,
+        subject: values.subject,
+        message: values.message,
+      };
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_JS_SERVICE_ID as string,
+        import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID as string,
+        templateParams,
+        import.meta.env.VITE_EMAIL_JS_USER_ID as string
+      );
+      formik.resetForm();
+      toast.toastSuccess("ההודעה נשלחה בהצלחה");
+    } catch (error) {
+      toast.toastError("שליחת ההודעה נכשלה");
+    }
   };
 
   const formik = useFormik({
