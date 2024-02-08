@@ -14,8 +14,8 @@ const Donation = () => {
               <div className="text-2xl font-semibold text-red-500 text-center lg:text-right">
                 עזרו לנו להנציח את שני גבאי ז"ל
               </div>
-              <div className="xl:text-2xl text-lg flex flex-col gap-8 text-center lg:text-right">
-                <div className="wrapper font-semibold">
+              <div className="flex flex-col gap-8 text-center lg:text-right">
+                <div className="wrapper font-semibold xl:text-2xl text-lg">
                   <div>
                     עמותת "חוט השני" מקיימת פעילות חינוכית וחברתית בזיכרון שני
                     גבאי ז"ל.
@@ -24,8 +24,8 @@ const Donation = () => {
                     תרומתכם תאפשר לנו להמשיך ולהפיץ את המסר של שני ולהנציח אותו.
                   </div>
                 </div>
-                <div className="wrapper flex flex-col gap-4">
-                  <button className="btn btn-primary w-full lg:w-1/2">
+                <div className="wrapper flex gap-4">
+                  <button className="btn btn-primary">
                     <Link
                       to="https://www.paypal.com/paypalme/RememberShaniGabay"
                       target="_blank"
@@ -33,7 +33,7 @@ const Donation = () => {
                       תרומה ב-PayPal
                     </Link>
                   </button>
-                  <button className="btn btn-primary w-full lg:w-1/2">
+                  <button className="btn btn-secondary">
                     <Link
                       to="https://payboxapp.page.link/URaKqFphJ3bV4HHv6"
                       target="_blank"

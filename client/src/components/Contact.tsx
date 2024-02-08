@@ -41,49 +41,7 @@ const Contact = () => {
         <div className="title text-center text-3xl font-semibold">צרו קשר</div>
         <div className="title-underline" />
         <div className="p-8 flex gap-4 flex-col lg:flex-row">
-          <div className="lg:w-1/2 w-full bg-black p-8">
-            <div className="w-full h-full flex flex-col p-4 gap-4 justify-center items-center">
-              <div className="wrapper text-white">
-                <div className="text-2xl font-semibold">אביאל גבאי</div>
-                <div className="text-lg">
-                  <div className="flex items-center gap-4">
-                    <i className="pi pi-envelope"></i>
-                    <a href="mailto:avielgabay@gmail.com">
-                      avielgabay@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <i className="pi pi-phone"></i>
-                    <a href="tel:054-457-7222">054-457-7222</a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <i className="pi pi-whatsapp"></i>
-                    <a href="https://wa.me/972544577222">WhatsApp</a>
-                  </div>
-                </div>
-              </div>
-              <div className="wrapper text-white">
-                <div className="text-2xl font-semibold">ניצן גבאי</div>
-                <div className="text-lg">
-                  <div className="flex items-center gap-4">
-                    <i className="pi pi-envelope"></i>
-                    <a href="mailto:nitzangabay@gmail.com">
-                      nitzangabay@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <i className="pi pi-phone"></i>
-                    <a href="tel:054-457-7222">054-457-7222</a>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <i className="pi pi-whatsapp"></i>
-                    <a href="https://wa.me/972544577222">WhatsApp</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="lg:w-1/2 w-full p-8 flex flex-col gap-4">
+          <div className="w-full p-8 flex flex-col gap-4">
             <div className="wrapper">
               <div className="text-2xl font-semibold text-red-500 text-center lg:text-right">
                 צרו איתנו קשר
@@ -137,7 +95,7 @@ const Contact = () => {
                 errors={formik.errors.message}
                 touched={formik.touched.message}
               />
-              <button type="submit" className="btn btn-primary w-full">
+              <button type="submit" className="btn btn-primary">
                 שלח
               </button>
             </form>

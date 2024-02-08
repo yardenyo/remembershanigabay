@@ -67,7 +67,7 @@ const CreateCandle = ({ refetch }: Props) => {
           errors={formik.errors.text}
           touched={formik.touched.text}
         />
-        <button type="submit" className="btn btn-primary w-full lg:w-1/2">
+        <button type="submit" className="btn btn-primary">
           הדלקת נר
         </button>
       </form>

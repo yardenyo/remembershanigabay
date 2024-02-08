@@ -40,7 +40,7 @@ const Necklace = () => {
                 <div>עמידה במים ומגיעה עם אחריות לשנה.</div>
               </div>
               <div>
-                <button className="btn btn-primary w-full lg:w-auto">
+                <button className="btn btn-primary">
                   <Link
                     to="https://nuni-jewelry.co.il/products/shani?variant=47513922634049"
                     target="_blank"

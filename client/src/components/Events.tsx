@@ -42,7 +42,7 @@ const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
         </div>
         {!view && (
           <div className="flex justify-center px-8">
-            <button className="btn btn-primary w-full lg:w-auto">
+            <button className="btn btn-primary">
               <Link to="/events">כל האירועים</Link>
             </button>
           </div>

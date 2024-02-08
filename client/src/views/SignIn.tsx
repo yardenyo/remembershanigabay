@@ -87,7 +87,7 @@ const SignIn: React.FC = () => {
               <button
                 disabled={isLoading}
                 type="submit"
-                className="w-full btn btn-primary"
+                className="btn btn-primary"
               >
                 התחבר
               </button>

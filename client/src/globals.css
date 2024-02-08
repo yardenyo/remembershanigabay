@@ -40,6 +40,10 @@
   }
 
   .btn {
+    @apply p-2 hover:scale-105 w-full lg:w-40;
+  }
+
+  .btn-hero {
     @apply p-2 hover:scale-105;
   }
 
