@@ -3,9 +3,12 @@ import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from "react";
 
 const Contact = () => {
   const toast = useToast();
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const initialValues = {
     name: "",
@@ -28,6 +31,10 @@ const Contact = () => {
     message: string;
   }) => {
     try {
+      const recaptchaValue = recaptchaRef.current?.getValue();
+      if (!recaptchaValue) {
+        throw new Error("אנא אשרו שאתם לא רובוט");
+      }
       const templateParams = {
         from_name: values.name,
         from_email: values.email,
@@ -41,6 +48,7 @@ const Contact = () => {
         templateParams,
         import.meta.env.VITE_EMAIL_JS_USER_ID as string
       );
+      recaptchaRef.current?.reset();
       formik.resetForm();
       toast.toastSuccess("ההודעה נשלחה בהצלחה");
     } catch (error) {
@@ -113,6 +121,12 @@ const Contact = () => {
                 onChange={formik.handleChange}
                 errors={formik.errors.message}
                 touched={formik.touched.message}
+              />
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={
+                  import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY as string
+                }
               />
               <button type="submit" className="btn btn-primary">
                 שלח
