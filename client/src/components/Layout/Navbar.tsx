@@ -7,7 +7,7 @@ const Navbar = () => {
   const toggleNavbar = () => setNavbarOpen(!navbarOpen);
 
   return (
-    <div className="py-2 px-8 navbar">
+    <div className="py-2 navbar container mx-auto">
       <div className="flex justify-between items-center">
         <div className="text-2xl font-semibold navbar-link">
           <Link smooth to="/">
