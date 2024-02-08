@@ -122,15 +122,17 @@ const Contact = () => {
                 errors={formik.errors.message}
                 touched={formik.touched.message}
               />
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={
-                  import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY as string
-                }
-              />
-              <button type="submit" className="btn btn-primary">
-                שלח
-              </button>
+              <div className="wrapper flex items-center justify-between">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={
+                    import.meta.env.VITE_GOOGLE_RECAPTCHA_SITE_KEY as string
+                  }
+                />
+                <button type="submit" className="btn btn-primary">
+                  שלח
+                </button>
+              </div>
             </form>
           </div>
         </div>
