@@ -2,10 +2,6 @@ import NavbarLinks from "@/constants/NavbarLinks";
 import { HashLink as Link } from "react-router-hash-link";
 
 const Footer = () => {
-  const getYear = () => {
-    return new Date().getFullYear();
-  };
-
   return (
     <footer className="bg-gray-100/20 container mx-auto flex flex-col lg:flex-row justify-between py-8">
       <div className="logo-section">
