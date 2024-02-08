@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Donation = () => {
   return (
     <section>
@@ -12,8 +14,8 @@ const Donation = () => {
               <div className="text-2xl font-semibold text-red-500 text-center lg:text-right">
                 עזרו לנו להנציח את שני גבאי ז"ל
               </div>
-              <div className="xl:text-2xl text-lg flex flex-col gap-8 text-center lg:text-right">
-                <div className="wrapper font-semibold">
+              <div className="flex flex-col gap-8 text-center lg:text-right">
+                <div className="wrapper font-semibold xl:text-2xl text-lg">
                   <div>
                     עמותת "חוט השני" מקיימת פעילות חינוכית וחברתית בזיכרון שני
                     גבאי ז"ל.
@@ -22,12 +24,22 @@ const Donation = () => {
                     תרומתכם תאפשר לנו להמשיך ולהפיץ את המסר של שני ולהנציח אותו.
                   </div>
                 </div>
-                <div className="wrapper flex flex-col gap-4">
-                  <button className="btn btn-primary w-full lg:w-1/2">
-                    תרומה ב-PayPal
+                <div className="wrapper flex gap-4">
+                  <button className="btn btn-primary">
+                    <Link
+                      to="https://www.paypal.com/paypalme/RememberShaniGabay"
+                      target="_blank"
+                    >
+                      תרומה ב-PayPal
+                    </Link>
                   </button>
-                  <button className="btn btn-primary w-full lg:w-1/2">
-                    תרומה ב-PayBox
+                  <button className="btn btn-secondary">
+                    <Link
+                      to="https://payboxapp.page.link/URaKqFphJ3bV4HHv6"
+                      target="_blank"
+                    >
+                      תרומה ב-PayBox
+                    </Link>
                   </button>
                 </div>
                 <div className="wrapper">
@@ -45,7 +57,7 @@ const Donation = () => {
           <div className="w-full flex justify-center lg:justify-end items-center">
             <div className="xl:w-3/4 w-full flex justify-center items-center border border-black border-opacity-5">
               <img
-                src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707073043/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp_2024-02-04_%D7%91%D7%A9%D7%A2%D7%94_20.33.24_9815fe6f_gwxgbb.jpg"
+                src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707153749/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A9%D7%9C_WhatsApp__2024-02-04_%D7%91%D7%A9%D7%A2%D7%94_20.33.24_9815fe6f_inme2o.jpg"
                 alt="donation"
                 className="p-4 hover:scale-105 transition duration-500 ease-in-out"
               />

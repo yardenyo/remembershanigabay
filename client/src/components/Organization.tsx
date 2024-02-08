@@ -27,7 +27,7 @@ const Organization = () => {
                 והחברים שלה.
               </div>
               <div>
-                <button className="btn btn-primary w-full lg:w-auto">
+                <button className="btn btn-primary">
                   <Link to="/story">עוד על הפרוייקט</Link>
                 </button>
               </div>

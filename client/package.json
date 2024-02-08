@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.1.0",
     "@reduxjs/toolkit": "^2.1.0",
     "async-mutex": "^0.4.1",
     "axios": "^1.6.7",
@@ -20,6 +21,7 @@
     "react": "^18.2.0",
     "react-cookie": "^7.0.2",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-lottie": "^1.2.4",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.0",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-lottie": "^1.2.10",
     "@types/react-router-hash-link": "^2.4.9",
     "@typescript-eslint/eslint-plugin": "^6.10.0",

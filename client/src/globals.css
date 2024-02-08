@@ -32,14 +32,18 @@
 
 @layer base {
   .navbar-link {
-    @apply text-gray-600 hover:cursor-pointer hover:text-gray-800 hover:font-semibold text-lg;
-  }
-
-  .navbar {
-    @apply bg-gray-100/30 rounded-lg hover:bg-gray-100/40;
+    @apply text-gray-600 hover:cursor-pointer hover:text-gray-800 hover:font-semibold text-xl;
   }
 
   .btn {
+    @apply p-2 hover:scale-105 w-full lg:w-40;
+  }
+
+  .btn-hero {
+    @apply p-2 hover:scale-105;
+  }
+
+  .btn-table {
     @apply p-2 hover:scale-105;
   }
 

@@ -6,6 +6,7 @@ import Media from "@/components/Media";
 import Necklace from "@/components/Necklace";
 import Candles from "@/components/Candles";
 import Donation from "@/components/Donation";
+import Contact from "@/components/Contact";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Necklace />
       <Candles />
       <Donation />
+      <Contact />
     </main>
   );
 };

@@ -25,7 +25,7 @@ const Story = () => {
                 מוזיקה ושירה עם חברים ועד למסיבות ופסטיבלים כל סוף שבוע שני.
               </div>
               <div>
-                <button className="btn btn-primary w-full lg:w-auto">
+                <button className="btn btn-primary">
                   <Link to="/story">הסיפור כולו כאן</Link>
                 </button>
               </div>

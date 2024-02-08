@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 const HeroSection = () => {
   return (
     <div className="relative h-[80vh] flex flex-col md:flex-row border-b border-black border-opacity-5">
-      <div className="absolute top-4 w-full z-50">
+      <div className="absolute w-full z-50">
         <Navbar />
       </div>
       <div className="w-full md:w-1/2">
@@ -23,10 +23,10 @@ const HeroSection = () => {
           אתר הנצחה לזכרה של <span className="text-red-500">שני</span> גבאי הי"ד
         </div>
         <div className="flex mt-4 gap-4">
-          <button className="btn btn-primary">
+          <button className="btn-hero btn-primary">
             <Link to="/memory-book">ספר הזכרונות</Link>
           </button>
-          <button className="btn btn-secondary">
+          <button className="btn-hero btn-secondary">
             <HashLink smooth to="/#donate">
               תרומה לעמותה
             </HashLink>
