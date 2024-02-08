@@ -15,7 +15,7 @@ const Layout = () => {
   }, []);
 
   return (
-    <main className="font-body relative">
+    <main className="font-body relative overflow-x-hidden">
       {isPlaying ? (
         <NoTimeForDrama />
       ) : (

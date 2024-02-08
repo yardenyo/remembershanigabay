@@ -122,7 +122,7 @@ const Contact = () => {
                 errors={formik.errors.message}
                 touched={formik.touched.message}
               />
-              <div className="wrapper flex items-center justify-between">
+              <div className="wrapper flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0">
                 <ReCAPTCHA
                   ref={recaptchaRef}
                   sitekey={
