@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Tooltip } from "primereact/tooltip";
 
 const BackgroundSound = () => {
   const [isDivVisible, setDivVisible] = useState(true);
@@ -6,6 +7,13 @@ const BackgroundSound = () => {
   const toggleDivVisibility = () => {
     setDivVisible(!isDivVisible);
   };
+
+  useEffect(() => {
+    const youtubeIcon = document.querySelector(".pi-youtube");
+    if (youtubeIcon) {
+      youtubeIcon.dispatchEvent(new Event("mouseenter"));
+    }
+  }, []);
 
   return (
     <div>
@@ -33,6 +41,11 @@ const BackgroundSound = () => {
           isDivVisible ? "text-red-500 hover:text-red-600" : "text-black"
         } transition duration-500 ease-in-out cursor-pointer`}
       ></i>
+      <Tooltip
+        target=".pi-youtube"
+        position="left"
+        content={isDivVisible ? "לחץ כדי להסתיר" : "לחץ כדי להציג"}
+      />
     </div>
   );
 };
