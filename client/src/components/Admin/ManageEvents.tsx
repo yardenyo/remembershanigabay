@@ -50,7 +50,7 @@ const ManageEvents = () => {
     <div className="flex flex-row-reverse justify-between items-center">
       <div className="text-xl text-900 font-bold">אירועים</div>
       <button
-        className="btn btn-primary"
+        className="btn-table btn-primary"
         onClick={() => {
           setCreate(true);
           setVisible(true);
@@ -120,13 +120,13 @@ const ManageEvents = () => {
     return (
       <div className="flex justify-end gap-4">
         <button
-          className="btn btn-danger"
+          className="btn-table btn-danger"
           onClick={() => confirmDelete(rowData._id)}
         >
           מחק
         </button>
         <button
-          className="btn btn-primary"
+          className="btn-table btn-primary"
           onClick={() => {
             setCreate(false);
             setEventID(rowData._id);

@@ -47,6 +47,10 @@
     @apply p-2 hover:scale-105;
   }
 
+  .btn-table {
+    @apply p-2 hover:scale-105;
+  }
+
   .btn-primary {
     @apply bg-black text-white;
   }
