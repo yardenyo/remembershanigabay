@@ -2,6 +2,7 @@ import HeroSection from "@/components/Layout/HeroSection";
 import BackgroundSound from "@/components/Layout/BackgroundSound";
 import ToTop from "@/components/Layout/ToTop";
 import NoTimeForDrama from "@/components/Layout/NoTimeForDrama";
+import Footer from "@/components/Layout/Footer";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -24,6 +25,7 @@ const Layout = () => {
           <BackgroundSound />
           <ToTop />
           <Outlet />
+          <Footer />
         </>
       )}
     </main>
