@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useGetAllEventsQuery } from "@/features/events/eventsApiSlice";
 import { IEvent } from "@/types/events";
 import { useEffect } from "react";
+import { Skeleton } from "primereact/skeleton";
 
 type Props = {
   view?: boolean;
@@ -19,7 +20,7 @@ const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
     page: pageNumber || 1,
   };
 
-  const { data: response } = useGetAllEventsQuery(payload);
+  const { data: response, isLoading } = useGetAllEventsQuery(payload);
   const EventsList = response?.data?.events || [];
 
   useEffect(() => {
@@ -36,9 +37,14 @@ const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
         </div>
         <div className="title-underline" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 gap-8">
-          {EventsList.slice().map((event: IEvent) => (
-            <Event key={event._id} {...event} />
-          ))}
+          {isLoading &&
+            Array.from({ length: 3 }).map((_, index) => (
+              <Skeleton key={index} width="100%" height="450px" />
+            ))}
+          {!isLoading &&
+            EventsList.slice().map((event: IEvent) => (
+              <Event key={event._id} {...event} />
+            ))}
         </div>
         {!view && (
           <div className="flex justify-center px-8">

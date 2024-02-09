@@ -31,7 +31,7 @@ class App {
         this.express.use(
             '*',
             cors({
-                origin: 'https://remembershanigabay.co.il',
+                origin: process.env.CLIENT_URL,
                 credentials: true,
             }),
         );
