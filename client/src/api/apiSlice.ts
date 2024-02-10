@@ -10,7 +10,10 @@ import { AuthState } from "@/types/auth";
 import { setAccessToken, logout } from "@/features/auth/authSlice";
 import { Mutex } from "async-mutex";
 
-const baseUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:5000/api";
+const baseUrl =
+  import.meta.env.VITE_NODE_ENV === "production"
+    ? import.meta.env.VITE_SERVER_URL_PROD
+    : import.meta.env.VITE_SERVER_URL_DEV;
 const mutex = new Mutex();
 
 const baseQuery = fetchBaseQuery({
