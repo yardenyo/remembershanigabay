@@ -29,7 +29,10 @@ class App {
     private initializeMiddleware(): void {
         this.express.use(helmet());
         this.express.use(
-            cors({ origin: process.env.CLIENT_URL, credentials: true }),
+            cors({
+                origin: 'https://remembershanigabay.co.il',
+                credentials: true,
+            }),
         );
         this.express.use(morgan('dev'));
         this.express.use(express.json());
