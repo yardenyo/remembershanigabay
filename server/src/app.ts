@@ -30,7 +30,10 @@ class App {
         this.express.use(helmet());
         this.express.use(
             cors({
-                origin: 'https://remembershanigabay.co.il',
+                origin:
+                    process.env.NODE_ENV === 'production'
+                        ? process.env.CLIENT_URL_PROD
+                        : process.env.CLIENT_URL_DEV,
                 credentials: true,
             }),
         );
