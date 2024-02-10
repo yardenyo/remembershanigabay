@@ -70,13 +70,23 @@ const Candles = ({ view = false, rows, pageNumber, setRecords }: Props) => {
                   <div className="pointer-events-none hidden lg:block">
                     <Lottie options={defaultOptions} height={200} width={200} />
                   </div>
-                  <div className="pointer-events-none lg:hidden">
-                    <Lottie options={defaultOptions} height={100} width={100} />
-                  </div>
-                  <div className="flex flex-col justify-start p-4 gap-2 lg:gap-0">
-                    <div className="text-2xl font-semibold">{candle.name}</div>
-                    <div className="text-xl font-semibold text-red-500">
-                      {formattedDate(candle.createdAt)}
+                  <div className="flex flex-col justify-start p-4 px-8 lg:px-4 gap-2 lg:gap-0">
+                    <div className="wrapper flex items-center">
+                      <div className="pointer-events-none lg:hidden">
+                        <Lottie
+                          options={defaultOptions}
+                          height={100}
+                          width={100}
+                        />
+                      </div>
+                      <div className="wrapper">
+                        <div className="text-2xl font-semibold">
+                          {candle.name}
+                        </div>
+                        <div className="text-xl font-semibold text-red-500">
+                          {formattedDate(candle.createdAt)}
+                        </div>
+                      </div>
                     </div>
                     <div className="text-lg font-semibold overflow-y-scroll max-h-20">
                       {candle.text}
