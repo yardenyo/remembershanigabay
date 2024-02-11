@@ -14,6 +14,7 @@ const ManageEvents = () => {
   const payload = {
     sortBy: "createdAt",
     sortOrder: 1,
+    showPastRecords: true,
   };
   const { data: response, refetch } = useGetAllEventsQuery(payload);
   const EventsList = response?.data?.events || [];

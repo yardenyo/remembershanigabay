@@ -14,11 +14,22 @@ class EventService {
             const { sort, skip, limit, searchFilter } =
                 await ConvertResponse(body);
 
-            const events = await this.event
-                .find(searchFilter)
-                .sort(sort)
-                .skip(skip)
-                .limit(limit);
+            let events;
+
+            if (body.showPastRecords) {
+                events = await this.event
+                    .find(searchFilter)
+                    .sort(sort)
+                    .skip(skip)
+                    .limit(limit);
+            } else {
+                events = await this.event
+                    .find({ date: { $gte: new Date() } })
+                    .find(searchFilter)
+                    .sort(sort)
+                    .skip(skip)
+                    .limit(limit);
+            }
 
             const count = await this.event.countDocuments();
 

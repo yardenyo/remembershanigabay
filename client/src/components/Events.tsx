@@ -18,6 +18,7 @@ const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
     sortOrder: 0,
     resultsPerPage: !view ? 3 : rows || 6,
     page: pageNumber || 1,
+    showPastRecords: !view ? false : true,
   };
 
   const { data: response, isLoading } = useGetAllEventsQuery(payload);
@@ -29,6 +30,8 @@ const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
     }
   }, [response, setRecords]);
 
+  if (isLoading || !EventsList.length) return null;
+
   return (
     <section>
       <div className="flex flex-col py-8 container mx-auto">
@@ -37,10 +40,6 @@ const Events = ({ view, rows, pageNumber, setRecords }: Props) => {
         </div>
         <div className="title-underline" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 gap-8">
-          {isLoading &&
-            Array.from({ length: 3 }).map((_, index) => (
-              <Skeleton key={index} width="100%" height="450px" />
-            ))}
           {!isLoading &&
             EventsList.slice().map((event: IEvent) => (
               <Event key={event._id} {...event} />
