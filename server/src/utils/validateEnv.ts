@@ -16,7 +16,6 @@ function validateEnv(): void {
         JWT_REFRESH_EXPIRES_IN: str(),
         EMAIL_USER: str(),
         EMAIL_PASSWORD: str(),
-        CLIENT_URL: str(),
         CLOUDINARY_CLOUD_NAME: str(),
         CLOUDINARY_API_KEY: str(),
         CLOUDINARY_API_SECRET: str(),
