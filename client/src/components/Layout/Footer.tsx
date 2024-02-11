@@ -21,16 +21,12 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="border-t border-black border-opacity-10 mt-4 pt-4 flex gap-4 justify-center">
-          <Link smooth to="/terms-of-use">
-            <div className="navbar-link">תנאי שימוש</div>
-          </Link>
-          <Link smooth to="/privacy-policy">
-            <div className="navbar-link">מדיניות פרטיות</div>
-          </Link>
-          <Link smooth to="/accessibility">
-            <div className="navbar-link">נגישות</div>
-          </Link>
+        <div className="border-t border-black border-opacity-10 mt-4 pt-4 flex justify-center">
+          <div className="navbar-link">
+            <Link smooth to="https://www.jordigital.co.il/" target="_blank">
+              &copy; {new Date().getFullYear()}, JorDigital. כל הזכויות שמורות.
+            </Link>
+          </div>
         </div>
       </div>
       <div className="social-media-section">
