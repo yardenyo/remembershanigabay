@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /events
+Allow: /story
+Allow: /organization
+Allow: /memory-book
+Allow: /media
+Allow: /memorial-candles
+Disallow: /admin-dashboard
+Disallow: /auth/signin

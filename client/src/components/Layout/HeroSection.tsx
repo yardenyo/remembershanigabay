@@ -10,7 +10,7 @@ const HeroSection = () => {
       </div>
       <div className="w-full md:w-1/2">
         <img
-          src="https://res.cloudinary.com/dweltcoxk/image/upload/v1702896957/%D7%9C%D7%9C%D7%90_%D7%A9%D7%9D_kw2vxi.png"
+          src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707639246/%D7%9C%D7%9C%D7%90_%D7%A9%D7%9D_gmfy2u.webp"
           alt="shani's picture"
           className="object-cover h-[80vh] md:h-full w-full pointer-events-none"
         />
