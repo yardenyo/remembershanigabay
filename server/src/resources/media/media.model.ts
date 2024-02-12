@@ -1,16 +1,17 @@
 import { Schema, model } from 'mongoose';
-import Media from '@/resources/media/media.interface';
+import Media, { MediaType } from '@/resources/media/media.interface';
 
 const MediaSchema = new Schema(
     {
         type: {
             type: String,
+            enum: [MediaType.IMAGE, MediaType.VIDEO],
             required: true,
         },
         title: {
             type: String,
             required: true,
-            maxLength: 30,
+            maxLength: 40,
             minLength: 3,
         },
         url: {

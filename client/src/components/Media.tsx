@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Dialog } from "primereact/dialog";
-import mediaItems from "@/constants/Media";
 import MediaGallery from "@/components/MediaGallery";
+import { useGetAllMediaQuery } from "@/features/media/mediaApiSlice";
 
 type Props = {
   view?: boolean;
@@ -18,6 +18,15 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
     resultsPerPage: !view ? 9 : rows || 9,
     page: pageNumber || 1,
   };
+
+  const { data: response, isLoading } = useGetAllMediaQuery(payload);
+  const mediaItems = response?.data?.media || [];
+
+  useEffect(() => {
+    if (response) {
+      setRecords && setRecords(response?.data?.count);
+    }
+  }, [response, setRecords]);
 
   const [selectedImage, setSelectedImage] = useState<string | undefined>(
     undefined
@@ -40,6 +49,8 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
   const headerElement = (
     <div className="text-lg lg:text-xl">{selectedTitle}</div>
   );
+
+  if (isLoading || !mediaItems.length) return null;
 
   return (
     <section>

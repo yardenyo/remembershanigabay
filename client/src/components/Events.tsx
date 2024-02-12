@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useGetAllEventsQuery } from "@/features/events/eventsApiSlice";
 import { IEvent } from "@/types/events";
 import { useEffect } from "react";
-import { Skeleton } from "primereact/skeleton";
 
 type Props = {
   view?: boolean;

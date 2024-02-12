@@ -1,14 +1,15 @@
 import Joi from 'joi';
+import { MediaType } from '@/resources/media/media.interface';
 
 const createMedia = Joi.object({
-    type: Joi.string().required(),
-    title: Joi.string().min(3).max(30).required(),
+    type: Joi.string().valid(MediaType.IMAGE, MediaType.VIDEO).required(),
+    title: Joi.string().min(3).max(40).required(),
     url: Joi.string().required(),
 });
 
 const updateMedia = Joi.object({
-    type: Joi.string(),
-    title: Joi.string().min(3).max(30),
+    type: Joi.string().valid(MediaType.IMAGE, MediaType.VIDEO),
+    title: Joi.string().min(3).max(40),
     url: Joi.string(),
 });
 
