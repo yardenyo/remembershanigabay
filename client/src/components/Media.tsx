@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Dialog } from "primereact/dialog";
 import MediaGallery from "@/components/MediaGallery";
 import { useGetAllMediaQuery } from "@/features/media/mediaApiSlice";
 
@@ -28,38 +27,12 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
     }
   }, [response, setRecords]);
 
-  const [selectedImage, setSelectedImage] = useState<string | undefined>(
-    undefined
-  );
-  const [selectedTitle, setSelectedTitle] = useState<string | undefined>(
-    undefined
-  );
-  const [visible, setVisible] = useState<boolean>(false);
-
-  const toggleDialog = (
-    image: string | undefined = undefined,
-    title: string | undefined = undefined,
-    visibility: boolean
-  ) => {
-    setSelectedImage(image);
-    setSelectedTitle(title);
-    setVisible(visibility);
-  };
-
-  const headerElement = (
-    <div className="text-lg lg:text-xl">{selectedTitle}</div>
-  );
-
   return (
     <section>
       <div className="py-8 container mx-auto">
         <div className="text-center text-3xl font-semibold mb-4">מדיה</div>
         <div className="title-underline" />
-        <MediaGallery
-          isLoading={isLoading}
-          mediaItems={mediaItems}
-          toggleDialog={toggleDialog}
-        />
+        <MediaGallery isLoading={isLoading} mediaItems={mediaItems} />
         {!view && (
           <div className="flex justify-center px-8">
             <button className="btn btn-primary">
@@ -67,21 +40,6 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
             </button>
           </div>
         )}
-        <Dialog
-          header={headerElement}
-          visible={visible}
-          blockScroll
-          draggable={false}
-          onHide={() => {
-            toggleDialog(undefined, undefined, false);
-          }}
-        >
-          <img
-            src={selectedImage}
-            alt=""
-            className="w-full h-auto max-h-[80vh]"
-          />
-        </Dialog>
       </div>
     </section>
   );
