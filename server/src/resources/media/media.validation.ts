@@ -4,7 +4,7 @@ import { MediaType } from '@/resources/media/media.interface';
 const createMedia = Joi.object({
     type: Joi.string().valid(MediaType.IMAGE, MediaType.VIDEO).required(),
     title: Joi.string().min(3).max(40).required(),
-    url: Joi.string().required(),
+    url: Joi.string().allow(null, ''),
 });
 
 const updateMedia = Joi.object({

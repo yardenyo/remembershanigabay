@@ -109,7 +109,6 @@ const MediaDialog = ({
         .matches(/(image|video)/, "סוג מדיה לא חוקי")
         .required("שדה חובה"),
       title: Yup.string().required("שדה חובה"),
-      url: Yup.string().required("שדה חובה"),
     }),
     onSubmit: (values: { type: string; title: string; url: string }) => {
       handleSubmit(values);
@@ -171,7 +170,7 @@ const MediaDialog = ({
             id="url"
             name="url"
             type="file"
-            label="תמונה"
+            label="מדיה"
             onChange={(e) => {
               if (e.target.files) {
                 setUrl(e.target.files[0]);
