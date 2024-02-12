@@ -50,14 +50,16 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
     <div className="text-lg lg:text-xl">{selectedTitle}</div>
   );
 
-  if (isLoading || !mediaItems.length) return null;
-
   return (
     <section>
       <div className="py-8 container mx-auto">
         <div className="text-center text-3xl font-semibold mb-4">מדיה</div>
         <div className="title-underline" />
-        <MediaGallery mediaItems={mediaItems} toggleDialog={toggleDialog} />
+        <MediaGallery
+          isLoading={isLoading}
+          mediaItems={mediaItems}
+          toggleDialog={toggleDialog}
+        />
         {!view && (
           <div className="flex justify-center px-8">
             <button className="btn btn-primary">
