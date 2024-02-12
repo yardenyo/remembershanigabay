@@ -13,7 +13,7 @@ import MemoryDialog from "@/components/Dialogs/MemoryDialog";
 const ManageMemories = () => {
   const payload = {
     sortBy: "createdAt",
-    sortOrder: 1,
+    sortOrder: 0,
   };
   const { data: response, refetch } = useGetAllMemoriesQuery(payload);
   const MemoriesList = response?.data || [];

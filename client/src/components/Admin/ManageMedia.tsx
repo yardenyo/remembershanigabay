@@ -8,12 +8,12 @@ import { Column } from "primereact/column";
 import useToast from "@/hooks/useToast";
 import { confirmDialog, ConfirmDialog } from "primereact/confirmdialog";
 import { useState } from "react";
-// import MediaDialog from "@/components/Dialogs/MediaDialog";
+import MediaDialog from "@/components/Dialogs/MediaDialog";
 
 const ManageMedia = () => {
   const payload = {
     sortBy: "createdAt",
-    sortOrder: 1,
+    sortOrder: 0,
   };
 
   const { data: response, refetch } = useGetAllMediaQuery(payload);
@@ -143,13 +143,13 @@ const ManageMedia = () => {
         />
         <Column field="title" header="כותרת המדיה" body={TitleBodyTemplate} />
       </DataTable>
-      {/* <EventDialog
+      <MediaDialog
         create={create}
         visible={visible}
         setVisible={setVisible}
         refetch={refetch}
-        eventID={eventID}
-      /> */}
+        mediaID={mediaID}
+      />
       <ConfirmDialog />
     </div>
   );
