@@ -32,6 +32,7 @@ class App {
             cors({
                 origin: process.env.ORIGIN,
                 credentials: true,
+                exposedHeaders: ['set-cookie'],
             }),
         );
         this.express.use(morgan('dev'));
