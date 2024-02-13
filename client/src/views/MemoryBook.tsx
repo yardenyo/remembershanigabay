@@ -3,26 +3,32 @@ import { Paginator } from "primereact/paginator";
 import { useGetAllMemoriesQuery } from "@/features/memories/memoriesApiSlice";
 
 const Testimonial = ({ testimonial, isActive, onClick }) => (
-  <div className="flex gap-4" onClick={onClick}>
-    <div className={`w-1/2 flex items-center gap-4`}>
-      <div className={`w-24 h-24 rounded-full overflow-hidden`}>
-        <img
-          src={testimonial.image}
-          alt={testimonial.name}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="w-1/2">
-        <div className="font-bold text-xl">{testimonial.name}</div>
-        <div className="text-gray-600">{testimonial.title}</div>
-      </div>
+  <div
+    className={`flex items-center gap-4 p-4 ${
+      isActive ? "bg-gray-200" : "hover:bg-gray-100 cursor-pointer"
+    }`}
+    onClick={onClick}
+  >
+    <div className={`w-24 h-24 rounded-full overflow-hidden`}>
+      <img
+        src={testimonial.image}
+        alt={testimonial.name}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <div className="w-1/2">
+      <div className="font-bold text-xl">{testimonial.name}</div>
+      <div className="text-gray-600">{testimonial.title}</div>
     </div>
   </div>
 );
 
 const Quote = ({ quote }) => (
-  <div className="w-1/2 flex items-center justify-center p-8">
-    <div className="text-lg h-full">{quote}</div>
+  <div className="w-1/2 flex items-center justify-center p-8 border">
+    <div>
+      <div className="text-5xl text-red-400 font-bold">“</div>
+      <div className="text-lg overflow-y-auto">{quote}</div>
+    </div>
   </div>
 );
 
