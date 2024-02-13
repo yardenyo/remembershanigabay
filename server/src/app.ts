@@ -32,6 +32,7 @@ class App {
             cors({
                 origin: process.env.ORIGIN,
                 credentials: true,
+                allowedHeaders: 'Content-Type,authorization',
             }),
         );
         this.express.use(morgan('dev'));
