@@ -30,7 +30,7 @@ class App {
         this.express.use(helmet());
         this.express.use(
             cors({
-                origin: process.env.ORIGIN1,
+                origin: process.env.ORIGIN,
                 credentials: true,
             }),
         );
