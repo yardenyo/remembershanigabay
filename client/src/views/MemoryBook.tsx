@@ -48,8 +48,8 @@ const MemoryBook = () => {
         ספר זיכרונות
       </div>
       <div className="title-underline" />
-      <div className="flex gap-12 py-20">
-        <div className="w-1/2">
+      <div className="flex flex-col lg:flex-row gap-12 py-20">
+        <div className="w-full lg:w-1/2 p-4 lg:p-0">
           {!isLoading
             ? memories.map((memory: TestimonialType, index: number) => (
                 <div key={memory._id} className="mb-4">
@@ -58,6 +58,11 @@ const MemoryBook = () => {
                     isActive={index === activeTestimonialIndex}
                     onClick={() => handleTestimonialClick(index)}
                   />
+                  <div className="flex lg:hidden justify-center">
+                    {index === activeTestimonialIndex && (
+                      <Quote quote={memory.quote} />
+                    )}
+                  </div>
                 </div>
               ))
             : Array.from({ length: 3 }).map((_, index) => (
@@ -67,7 +72,9 @@ const MemoryBook = () => {
               ))}
         </div>
         {!isLoading ? (
-          <Quote quote={memories[activeTestimonialIndex]?.quote} />
+          <div className="w-full lg:w-1/2 hidden lg:flex">
+            <Quote quote={memories[activeTestimonialIndex]?.quote} />
+          </div>
         ) : (
           <Skeleton width="50%" height="500px" />
         )}
