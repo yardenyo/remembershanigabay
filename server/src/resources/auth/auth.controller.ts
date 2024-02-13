@@ -77,19 +77,17 @@ class AuthController implements Controller {
 
             res.cookie('refreshToken', refreshToken, {
                 sameSite: 'none',
-                secure: true,
+                secure: false,
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
             res.cookie('isAuthenticated', true, {
                 sameSite: 'none',
-                secure: true,
+                secure: false,
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
-
-            res.setHeader('Access-Control-Allow-Credentials', 'true');
 
             res.json(
                 new SuccessResponse('משתמש התחבר בהצלחה', {
@@ -114,19 +112,17 @@ class AuthController implements Controller {
 
             res.cookie('refreshToken', refreshToken, {
                 sameSite: 'none',
-                secure: true,
+                secure: false,
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
             res.cookie('isAuthenticated', true, {
                 sameSite: 'none',
-                secure: true,
+                secure: false,
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
-
-            res.setHeader('Access-Control-Allow-Credentials', 'true');
 
             res.json(
                 new SuccessResponse('נוצר טוקן חדש בהצלחה', {
@@ -166,8 +162,6 @@ class AuthController implements Controller {
             const { id } = req.body.user;
             await validateDBId(id);
             const { user } = await this.AuthService.getUser(id);
-
-            res.setHeader('Access-Control-Allow-Credentials', 'true');
 
             res.json(
                 new SuccessResponse('משתמש נמצא בהצלחה', {
