@@ -10,7 +10,7 @@ const MemoryBook = () => {
     sortOrder: 0,
   };
   const { data: response, isLoading } = useGetAllMemoriesQuery(payload);
-  const MemoriesList = response?.data || [];
+  const MemoriesList = response?.data?.memories || [];
 
   const renderCarouselItem = (testimonial: {
     name: string;

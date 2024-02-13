@@ -1,36 +1,10 @@
 import { useEffect, useState } from "react";
 import { Paginator } from "primereact/paginator";
 import { useGetAllMemoriesQuery } from "@/features/memories/memoriesApiSlice";
-
-const Testimonial = ({ testimonial, isActive, onClick }) => (
-  <div
-    className={`flex items-center gap-4 p-4 ${
-      isActive ? "bg-gray-200" : "hover:bg-gray-100 cursor-pointer"
-    }`}
-    onClick={onClick}
-  >
-    <div className={`w-24 h-24 rounded-full overflow-hidden`}>
-      <img
-        src={testimonial.image}
-        alt={testimonial.name}
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <div className="w-1/2">
-      <div className="font-bold text-xl">{testimonial.name}</div>
-      <div className="text-gray-600">{testimonial.title}</div>
-    </div>
-  </div>
-);
-
-const Quote = ({ quote }) => (
-  <div className="w-1/2 flex items-center justify-center p-8 border">
-    <div>
-      <div className="text-5xl text-red-400 font-bold">“</div>
-      <div className="text-lg overflow-y-auto">{quote}</div>
-    </div>
-  </div>
-);
+import Testimonial, {
+  TestimonialType,
+} from "@/components/Testimonial/Testimonial";
+import Quote from "@/components/Testimonial/Quote";
 
 const MemoryBook = () => {
   const [first, setFirst] = useState(0);
@@ -67,7 +41,7 @@ const MemoryBook = () => {
     }
   }, [response, setRows]);
 
-  const handleTestimonialClick = (index) => {
+  const handleTestimonialClick = (index: number) => {
     setActiveTestimonialIndex(index);
   };
 
@@ -85,11 +59,10 @@ const MemoryBook = () => {
         ספר זיכרונות
       </div>
       <div className="title-underline" />
-
-      <div className="flex gap-4">
+      <div className="flex gap-12 py-20">
         <div className="w-1/2">
-          {memories.map((memory, index) => (
-            <div key={memory.id} className="mb-4">
+          {memories.map((memory: TestimonialType, index: number) => (
+            <div key={memory._id} className="mb-4">
               <Testimonial
                 testimonial={memory}
                 isActive={index === activeTestimonialIndex}
@@ -100,7 +73,6 @@ const MemoryBook = () => {
         </div>
         <Quote quote={memories[activeTestimonialIndex]?.quote} />
       </div>
-
       <Paginator
         first={first}
         rows={rows}
