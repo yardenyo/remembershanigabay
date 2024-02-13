@@ -45,8 +45,15 @@ class MemoryController implements Controller {
         next: NextFunction,
     ): Promise<void> => {
         try {
-            const memories = await this.memoryService.getAllMemories(req.body);
-            res.json(new SuccessResponse('זיכרונות נטענו בהצלחה', memories));
+            const { memories, count } = await this.memoryService.getAllMemories(
+                req.body,
+            );
+            res.json(
+                new SuccessResponse('זיכרונות נטענו בהצלחה', {
+                    memories,
+                    count,
+                }),
+            );
         } catch (error: any) {
             next(new HttpException(400, error.message));
         }

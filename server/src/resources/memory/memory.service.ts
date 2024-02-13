@@ -6,7 +6,10 @@ import ConvertResponse from '@/utils/helpers/convertresponse.helper';
 class MemoryService {
     private memory = MemoryModel;
 
-    public async getAllMemories(body: PostBody): Promise<Memory[]> {
+    public async getAllMemories(body: PostBody): Promise<{
+        memories: Memory[];
+        count: number;
+    }> {
         try {
             const { sort, skip, limit, searchFilter } =
                 await ConvertResponse(body);
@@ -17,7 +20,9 @@ class MemoryService {
                 .skip(skip)
                 .limit(limit);
 
-            return memories;
+            const count = await this.memory.countDocuments();
+
+            return { memories, count };
         } catch (error) {
             throw new Error('שגיאה בטעינת זיכרונות');
         }
