@@ -6,7 +6,7 @@ import {
 } from "@/features/events/eventsApiSlice";
 import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import * as Yup from "yup";
 import UploadFileField from "@/components/Global/UploadFileField";
@@ -27,29 +27,9 @@ const EventDialog = ({
   eventID,
 }: Props) => {
   const toast = useToast();
-  const [image, setImage] = useState<File | null>(null);
+  const [isLoadingFileUpload, setIsLoadingFileUpload] = useState(false);
   const [createEvent] = useCreateEventMutation();
   const [updateEvent] = useUpdateEventMutation();
-
-  useEffect(() => {
-    if (image) {
-      const data = new FormData();
-      data.append("file", image);
-      data.append("upload_preset", "events");
-      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
-      fetch(import.meta.env.VITE_CLOUDINARY_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          formik.setFieldValue("image", data.url);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [image]);
 
   const {
     data: eventData,
@@ -121,6 +101,7 @@ const EventDialog = ({
       time: Yup.string().required("שדה חובה"),
       location: Yup.string().required("שדה חובה"),
       description: Yup.string().required("שדה חובה"),
+      image: Yup.string(),
     }),
     onSubmit: (values: {
       title: string;
@@ -128,11 +109,31 @@ const EventDialog = ({
       time: string;
       location: string;
       description: string;
+      image: string;
     }) => {
       handleSubmit(values);
     },
     enableReinitialize: true,
   });
+
+  const uploadFile = async (file: File) => {
+    try {
+      setIsLoadingFileUpload(true);
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "events");
+      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+      const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL_IMAGE, {
+        method: "post",
+        body: data,
+      }).then((res) => res.json());
+      formik.setFieldValue("image", response.url);
+    } catch (error) {
+      console.error("Error during file upload:", error);
+    } finally {
+      setIsLoadingFileUpload(false);
+    }
+  };
 
   return (
     <Dialog
@@ -147,6 +148,7 @@ const EventDialog = ({
         <div className="flex justify-end">
           <button
             type="button"
+            disabled={isLoadingFileUpload}
             className="btn btn-primary"
             onClick={() => formik.handleSubmit()}
           >
@@ -210,15 +212,17 @@ const EventDialog = ({
             touched={formik.touched.description}
           />
           <UploadFileField
-            id="image"
-            name="image"
+            id="url"
+            name="url"
             type="file"
             label="תמונה"
-            onChange={(e) => {
+            onChange={async (e) => {
               if (e.target.files) {
-                setImage(e.target.files[0]);
+                await uploadFile(e.target.files[0]);
               }
             }}
+            errors={formik.errors.image}
+            touched={formik.touched.image}
           />
         </div>
       )}

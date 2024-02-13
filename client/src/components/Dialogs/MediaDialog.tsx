@@ -120,8 +120,6 @@ const MediaDialog = ({
         }
       ).then((res) => res.json());
 
-      console.log("response", response);
-
       formik.setFieldValue("url", response?.url || "");
     } catch (error) {
       console.error("Error during file upload:", error);
