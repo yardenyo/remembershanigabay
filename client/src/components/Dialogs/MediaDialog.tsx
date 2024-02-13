@@ -8,9 +8,9 @@ import {
 } from "@/features/media/mediaApiSlice";
 import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
-import { useState, useEffect } from "react";
 import { Dialog } from "primereact/dialog";
 import * as Yup from "yup";
+import { useEffect, useState } from "react";
 
 type Props = {
   create: boolean;
@@ -28,29 +28,9 @@ const MediaDialog = ({
   mediaID,
 }: Props) => {
   const toast = useToast();
-  const [url, setUrl] = useState<File | null>(null);
+  const [isLoadingFileUpload, setIsLoadingFileUpload] = useState(false);
   const [createMedia] = useCreateMediaMutation();
   const [updateMedia] = useUpdateMediaMutation();
-
-  useEffect(() => {
-    if (url) {
-      const data = new FormData();
-      data.append("file", url);
-      data.append("upload_preset", "mediapreset");
-      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
-      fetch(import.meta.env.VITE_CLOUDINARY_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          formik.setFieldValue("url", data.url);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [url]);
 
   const {
     data: mediaData,
@@ -59,9 +39,9 @@ const MediaDialog = ({
   } = useGetMediaQuery(mediaID || "");
 
   const initialValues = {
-    type: mediaData?.data.type || "",
-    title: mediaData?.data.title || "",
-    url: mediaData?.data.url || "",
+    type: mediaData?.data?.type || "image",
+    title: mediaData?.data?.title || "",
+    url: mediaData?.data?.url || "",
   };
 
   const handleSubmit = async (values: {
@@ -90,8 +70,8 @@ const MediaDialog = ({
       refetchMedia && refetchMedia();
       formik.resetForm();
       setVisible(false);
-    } catch (e: unknown) {
-      console.log(e);
+    } catch (error) {
+      console.error("Error during submission:", error);
       toast.toastError("משהו השתבש, נסה שנית");
     }
   };
@@ -100,7 +80,7 @@ const MediaDialog = ({
     initialValues: !create
       ? initialValues
       : {
-          type: "",
+          type: "image",
           title: "",
           url: "",
         },
@@ -109,12 +89,46 @@ const MediaDialog = ({
         .matches(/(image|video)/, "סוג מדיה לא חוקי")
         .required("שדה חובה"),
       title: Yup.string().required("שדה חובה"),
+      url: Yup.string().required("שדה חובה"),
     }),
     onSubmit: (values: { type: string; title: string; url: string }) => {
       handleSubmit(values);
     },
     enableReinitialize: true,
   });
+
+  const uploadFile = async (file: File) => {
+    try {
+      setIsLoadingFileUpload(true);
+      const data = new FormData();
+      data.append("file", file as Blob);
+      data.append(
+        "upload_preset",
+        formik.values.type === "image"
+          ? "mediapreset_images"
+          : "mediapreset_videos"
+      );
+      data.append("resource_type", formik.values.type);
+      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+      const response = await fetch(
+        formik.values.type === "image"
+          ? import.meta.env.VITE_CLOUDINARY_URL_IMAGE
+          : import.meta.env.VITE_CLOUDINARY_URL_VIDEO,
+        {
+          method: "post",
+          body: data,
+        }
+      ).then((res) => res.json());
+
+      console.log("response", response);
+
+      formik.setFieldValue("url", response?.url || "");
+    } catch (error) {
+      console.error("Error during file upload:", error);
+    } finally {
+      setIsLoadingFileUpload(false);
+    }
+  };
 
   return (
     <Dialog
@@ -129,6 +143,7 @@ const MediaDialog = ({
         <div className="flex justify-end">
           <button
             type="button"
+            disabled={isLoadingFileUpload}
             className="btn btn-primary"
             onClick={() => formik.handleSubmit()}
           >
@@ -148,7 +163,6 @@ const MediaDialog = ({
             showLabel={false}
             value={formik.values.type}
             options={[
-              { value: "", label: "בחר סוג" },
               { value: "image", label: "תמונה" },
               { value: "video", label: "וידאו" },
             ]}
@@ -171,11 +185,13 @@ const MediaDialog = ({
             name="url"
             type="file"
             label="מדיה"
-            onChange={(e) => {
+            onChange={async (e) => {
               if (e.target.files) {
-                setUrl(e.target.files[0]);
+                await uploadFile(e.target.files[0]);
               }
             }}
+            errors={formik.errors.url}
+            touched={formik.touched.url}
           />
         </div>
       )}
