@@ -5,6 +5,7 @@ import Testimonial, {
   TestimonialType,
 } from "@/components/Testimonial/Testimonial";
 import Quote from "@/components/Testimonial/Quote";
+import { Skeleton } from "primereact/skeleton";
 
 const MemoryBook = () => {
   const [first, setFirst] = useState(0);
@@ -22,11 +23,7 @@ const MemoryBook = () => {
     setPageNumber(event.page + 1);
   };
 
-  const {
-    data: response,
-    isLoading,
-    isError,
-  } = useGetAllMemoriesQuery({
+  const { data: response, isLoading } = useGetAllMemoriesQuery({
     sortBy: "createdAt",
     sortOrder: 0,
     resultsPerPage: rows || 3,
@@ -45,14 +42,6 @@ const MemoryBook = () => {
     setActiveTestimonialIndex(index);
   };
 
-  if (isError) {
-    return <div>Error loading memories</div>;
-  }
-
-  if (isLoading || !memories.length) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="py-8 container mx-auto">
       <div className="text-center text-3xl font-semibold mb-4">
@@ -61,17 +50,27 @@ const MemoryBook = () => {
       <div className="title-underline" />
       <div className="flex gap-12 py-20">
         <div className="w-1/2">
-          {memories.map((memory: TestimonialType, index: number) => (
-            <div key={memory._id} className="mb-4">
-              <Testimonial
-                testimonial={memory}
-                isActive={index === activeTestimonialIndex}
-                onClick={() => handleTestimonialClick(index)}
-              />
-            </div>
-          ))}
+          {!isLoading
+            ? memories.map((memory: TestimonialType, index: number) => (
+                <div key={memory._id} className="mb-4">
+                  <Testimonial
+                    testimonial={memory}
+                    isActive={index === activeTestimonialIndex}
+                    onClick={() => handleTestimonialClick(index)}
+                  />
+                </div>
+              ))
+            : Array.from({ length: 3 }).map((_, index) => (
+                <div key={index} className="mb-4">
+                  <Skeleton shape="rectangle" width="100%" height="150px" />
+                </div>
+              ))}
         </div>
-        <Quote quote={memories[activeTestimonialIndex]?.quote} />
+        {!isLoading ? (
+          <Quote quote={memories[activeTestimonialIndex]?.quote} />
+        ) : (
+          <Skeleton width="50%" height="500px" />
+        )}
       </div>
       <Paginator
         first={first}
