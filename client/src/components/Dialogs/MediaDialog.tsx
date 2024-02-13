@@ -10,7 +10,7 @@ import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
 import { Dialog } from "primereact/dialog";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   create: boolean;

@@ -6,7 +6,7 @@ import {
 } from "@/features/memories/memoriesApiSlice";
 import useToast from "@/hooks/useToast";
 import { useFormik } from "formik";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import * as Yup from "yup";
 import UploadFileField from "@/components/Global/UploadFileField";
