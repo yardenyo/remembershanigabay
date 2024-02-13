@@ -11,11 +11,11 @@ type Props = {
 
 const AuthMiddleware = ({ children }: Props) => {
   const [cookies] = useCookies(["isAuthenticated"]);
+  const user = useSelector(selectCurrentUser);
   const { isLoading, isFetching } = useGetUserQuery(null, {
     skip: !cookies.isAuthenticated,
     refetchOnMountOrArgChange: true,
   });
-  const user = useSelector(selectCurrentUser);
   const loading = isLoading || isFetching;
 
   if (loading) return <NoTimeForDrama />;
