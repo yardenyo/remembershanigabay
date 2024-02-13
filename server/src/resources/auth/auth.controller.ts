@@ -76,13 +76,15 @@ class AuthController implements Controller {
             );
 
             res.cookie('refreshToken', refreshToken, {
-                secure: false,
+                domain: process.env.ORIGIN,
+                secure: true,
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
             res.cookie('isAuthenticated', true, {
-                secure: false,
+                domain: process.env.ORIGIN,
+                secure: true,
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
@@ -109,13 +111,15 @@ class AuthController implements Controller {
                 await this.AuthService.refreshToken(id);
 
             res.cookie('refreshToken', refreshToken, {
-                secure: false,
+                domain: process.env.ORIGIN,
+                secure: true,
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
             res.cookie('isAuthenticated', true, {
-                secure: false,
+                domain: process.env.ORIGIN,
+                secure: true,
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
