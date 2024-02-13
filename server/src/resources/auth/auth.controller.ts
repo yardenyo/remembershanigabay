@@ -76,13 +76,13 @@ class AuthController implements Controller {
             );
 
             res.cookie('refreshToken', refreshToken, {
-                secure: true,
+                secure: process.env.NODE_ENV !== 'development',
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
             res.cookie('isAuthenticated', true, {
-                secure: true,
+                secure: process.env.NODE_ENV !== 'development',
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
