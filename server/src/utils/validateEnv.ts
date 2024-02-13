@@ -20,7 +20,6 @@ function validateEnv(): void {
         CLOUDINARY_API_KEY: str(),
         CLOUDINARY_API_SECRET: str(),
         ORIGIN: str(),
-        SERVER_ORIGIN: str(),
     });
 }
 
