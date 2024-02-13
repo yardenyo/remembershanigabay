@@ -167,6 +167,10 @@ class AuthController implements Controller {
             await validateDBId(id);
             const { user } = await this.AuthService.getUser(id);
 
+            res.set('Access-Control-Allow-Credentials', 'true');
+            res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
+            res.set('Access-Control-Allow-Headers', 'Content-Type');
+
             res.json(
                 new SuccessResponse('משתמש נמצא בהצלחה', {
                     user: {
