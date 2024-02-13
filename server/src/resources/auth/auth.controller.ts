@@ -89,10 +89,6 @@ class AuthController implements Controller {
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
-            res.set('Access-Control-Allow-Credentials', 'true');
-            res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
-            res.set('Access-Control-Allow-Headers', 'Content-Type');
-
             res.json(
                 new SuccessResponse('משתמש התחבר בהצלחה', {
                     accessToken,
@@ -166,10 +162,6 @@ class AuthController implements Controller {
             const { id } = req.body.user;
             await validateDBId(id);
             const { user } = await this.AuthService.getUser(id);
-
-            res.set('Access-Control-Allow-Credentials', 'true');
-            res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
-            res.set('Access-Control-Allow-Headers', 'Content-Type');
 
             res.json(
                 new SuccessResponse('משתמש נמצא בהצלחה', {
