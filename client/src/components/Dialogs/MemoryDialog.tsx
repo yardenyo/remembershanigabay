@@ -27,29 +27,9 @@ const MemoryDialog = ({
   memoryID,
 }: Props) => {
   const toast = useToast();
-  const [image, setImage] = useState<File | null>(null);
+  const [isLoadingFileUpload, setIsLoadingFileUpload] = useState(false);
   const [createMemory] = useCreateMemoryMutation();
   const [updateMemory] = useUpdateMemoryMutation();
-
-  useEffect(() => {
-    if (image) {
-      const data = new FormData();
-      data.append("file", image);
-      data.append("upload_preset", "memories");
-      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
-      fetch(import.meta.env.VITE_CLOUDINARY_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          formik.setFieldValue("image", data.url);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [image]);
 
   const {
     data: memoryData,
@@ -111,12 +91,38 @@ const MemoryDialog = ({
       name: Yup.string().required("שדה חובה"),
       title: Yup.string().required("שדה חובה"),
       quote: Yup.string().required("שדה חובה"),
+      image: Yup.string(),
     }),
-    onSubmit: (values: { name: string; title: string; quote: string }) => {
+    onSubmit: (values: {
+      name: string;
+      title: string;
+      quote: string;
+      image: string;
+    }) => {
       handleSubmit(values);
     },
     enableReinitialize: true,
   });
+
+  const uploadFile = async (file: File) => {
+    try {
+      setIsLoadingFileUpload(true);
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "memories");
+      data.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+      const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL_IMAGE, {
+        method: "post",
+        body: data,
+      }).then((res) => res.json());
+      formik.setFieldValue("image", response.url);
+      setIsLoadingFileUpload(false);
+    } catch (error) {
+      console.error("Error during file upload:", error);
+    } finally {
+      setIsLoadingFileUpload(false);
+    }
+  };
 
   return (
     <Dialog
@@ -128,6 +134,7 @@ const MemoryDialog = ({
         <div className="flex justify-end">
           <button
             className="btn btn-primary"
+            disabled={isLoadingFileUpload}
             onClick={() => formik.handleSubmit()}
           >
             {create ? "הוסף זכרון" : "עדכן זכרון"}
@@ -176,9 +183,11 @@ const MemoryDialog = ({
             label="תמונה"
             onChange={(e) => {
               if (e.target.files) {
-                setImage(e.target.files[0]);
+                uploadFile(e.target.files[0]);
               }
             }}
+            errors={formik.errors.image}
+            touched={formik.touched.image}
           />
         </div>
       )}
