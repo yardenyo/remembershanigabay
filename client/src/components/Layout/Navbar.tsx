@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div className="py-2 navbar container mx-auto">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center px-4 xl:px-0">
         <div className="text-2xl font-semibold navbar-link">
           <Link smooth to="/">
             דף הבית של <span className="text-red-500">שני</span>

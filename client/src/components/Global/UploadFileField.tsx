@@ -4,9 +4,19 @@ type Props = {
   type: string;
   label: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  errors: string | undefined;
+  touched: boolean | undefined;
 };
 
-const UploadFileField = ({ id, name, type, label, onChange }: Props) => {
+const UploadFileField = ({
+  id,
+  name,
+  type,
+  label,
+  onChange,
+  errors,
+  touched,
+}: Props) => {
   return (
     <div className="relative h-14 w-full min-w-[200px] mb-4">
       <input
@@ -20,6 +30,9 @@ const UploadFileField = ({ id, name, type, label, onChange }: Props) => {
       <label className="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-10 w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-black after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-black peer-focus:after:scale-x-100 peer-focus:after:border-black peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
         {label}
       </label>
+      {errors && touched ? (
+        <div className="text-red-500 text-xs">{errors}</div>
+      ) : null}
     </div>
   );
 };

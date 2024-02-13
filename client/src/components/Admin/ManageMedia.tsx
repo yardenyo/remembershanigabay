@@ -1,36 +1,37 @@
 import {
-  useGetAllMemoriesQuery,
-  useDeleteMemoryMutation,
-} from "@/features/memories/memoriesApiSlice";
-import { IMemory } from "@/types/memories";
+  useGetAllMediaQuery,
+  useDeleteMediaMutation,
+} from "@/features/media/mediaApiSlice";
+import { IMedia } from "@/types/media";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import useToast from "@/hooks/useToast";
-import { confirmDialog } from "primereact/confirmdialog";
+import { confirmDialog, ConfirmDialog } from "primereact/confirmdialog";
 import { useState } from "react";
-import MemoryDialog from "@/components/Dialogs/MemoryDialog";
+import MediaDialog from "@/components/Dialogs/MediaDialog";
 
-const ManageMemories = () => {
+const ManageMedia = () => {
   const payload = {
     sortBy: "createdAt",
     sortOrder: 0,
   };
-  const { data: response, refetch } = useGetAllMemoriesQuery(payload);
-  const MemoriesList = response?.data || [];
+
+  const { data: response, refetch } = useGetAllMediaQuery(payload);
+  const MediaList = response?.data?.media || [];
 
   const toast = useToast();
 
-  const [deleteMemory] = useDeleteMemoryMutation();
+  const [deleteMedia] = useDeleteMediaMutation();
 
   const [visible, setVisible] = useState(false);
   const [create, setCreate] = useState(false);
-  const [memoryID, setMemoryID] = useState("");
+  const [mediaID, setMediaID] = useState("");
 
   const handleDelete = async (id: string) => {
     try {
-      await deleteMemory(id).unwrap();
+      await deleteMedia(id).unwrap();
       refetch();
-      toast.toastSuccess("הזכרון נמחק בהצלחה");
+      toast.toastSuccess("מדיה נמחקה בהצלחה");
     } catch (error) {
       toast.toastError("משהו השתבש, נסה שנית");
     }
@@ -38,8 +39,8 @@ const ManageMemories = () => {
 
   const confirmDelete = (id: string) => {
     confirmDialog({
-      message: "האם אתה בטוח שברצונך למחוק את הזכרון?",
-      header: "מחיקת זכרון",
+      message: "האם אתה בטוח שברצונך למחוק את המדיה?",
+      header: "מחיקת מדיה",
       icon: "pi pi-exclamation-triangle",
       accept: () => handleDelete(id),
       reject: () => {},
@@ -48,7 +49,7 @@ const ManageMemories = () => {
 
   const header = (
     <div className="flex flex-row-reverse justify-between items-center">
-      <div className="text-xl text-900 font-bold">זכרונות</div>
+      <div className="text-xl text-900 font-bold">מדיה</div>
       <button
         className="btn-table btn-primary"
         onClick={() => {
@@ -56,53 +57,45 @@ const ManageMemories = () => {
           setVisible(true);
         }}
       >
-        הוסף זכרון
+        הוסף מדיה
       </button>
     </div>
   );
 
-  const footer = `מציג ${MemoriesList.length} זכרונות`;
+  const footer = `סה"כ ${MediaList.length} מדיה`;
 
-  const TitleBodyTemplate = (rowData: IMemory) => {
+  const TitleBodyTemplate = (rowData: IMedia) => {
     return (
       <span className="font-semibold flex justify-end">{rowData.title}</span>
     );
   };
 
-  const ImageBodyTemplate = (rowData: IMemory) => {
+  const MediaTypeBodyTemplate = (rowData: IMedia) => {
     return (
       <div className="flex justify-end">
-        <img
-          className="w-20 h-20 rounded-md border-2 border-gray-300"
-          src={
-            rowData.image ||
-            "https://res.cloudinary.com/dweltcoxk/image/upload/v1699290993/assets/zb3phjr1bvhgns50gird.png"
-          }
-          alt={rowData.title}
-        />
+        {rowData.type === "image" ? (
+          <img
+            className="w-20 h-20 rounded-md border-2 border-gray-300"
+            src={
+              rowData.url ||
+              "https://res.cloudinary.com/dweltcoxk/image/upload/v1699290993/assets/zb3phjr1bvhgns50gird.png"
+            }
+            alt={rowData.title}
+          />
+        ) : rowData.type === "video" ? (
+          <video
+            className="w-20 h-20 rounded-md border-2 border-gray-300"
+            controls
+          >
+            <source src={rowData.url} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : null}
       </div>
     );
   };
 
-  const QuoteBodyTemplate = (rowData: IMemory) => {
-    const truncatedQuote = rowData.quote.slice(0, 50);
-
-    return (
-      <div className="flex justify-end">
-        {truncatedQuote.length < rowData.quote.length ? (
-          <>...{truncatedQuote}</>
-        ) : (
-          truncatedQuote
-        )}
-      </div>
-    );
-  };
-
-  const NameBodyTemplate = (rowData: IMemory) => {
-    return <span className="flex justify-end">{rowData.name}</span>;
-  };
-
-  const ActionBodyTemplate = (rowData: IMemory) => {
+  const ActionBodyTemplate = (rowData: IMedia) => {
     return (
       <div className="flex justify-end gap-4">
         <button
@@ -115,7 +108,7 @@ const ManageMemories = () => {
           className="btn-table btn-primary"
           onClick={() => {
             setCreate(false);
-            setMemoryID(rowData._id);
+            setMediaID(rowData._id);
             setVisible(true);
           }}
         >
@@ -128,10 +121,10 @@ const ManageMemories = () => {
   return (
     <div className="flex flex-col py-8 container mx-auto">
       <div className="title text-center text-3xl font-semibold mb-8">
-        ניהול זכרונות
+        ניהול מדיה
       </div>
       <DataTable
-        value={MemoriesList}
+        value={MediaList}
         header={header}
         footer={footer}
         className="p-datatable-striped p-datatable-gridlines p-datatable-sm"
@@ -143,20 +136,23 @@ const ManageMemories = () => {
         dir="ltr"
       >
         <Column field="actions" header="פעולות" body={ActionBodyTemplate} />
-        <Column field="image" header="תמונה" body={ImageBodyTemplate} />
-        <Column field="quote" header="ציטוט" body={QuoteBodyTemplate} />
-        <Column field="title" header="קרבה" body={TitleBodyTemplate} />
-        <Column field="name" header="שם" body={NameBodyTemplate} />
+        <Column
+          field="url"
+          header="תצוגה מקדימה"
+          body={MediaTypeBodyTemplate}
+        />
+        <Column field="title" header="כותרת המדיה" body={TitleBodyTemplate} />
       </DataTable>
-      <MemoryDialog
+      <MediaDialog
         create={create}
         visible={visible}
         setVisible={setVisible}
         refetch={refetch}
-        memoryID={memoryID}
+        mediaID={mediaID}
       />
+      <ConfirmDialog />
     </div>
   );
 };
 
-export default ManageMemories;
+export default ManageMedia;

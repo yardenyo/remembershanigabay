@@ -55,6 +55,10 @@
     @apply bg-gray-100 text-black;
   }
 
+  .btn-primary:disabled {
+    @apply bg-gray-500 text-gray-300 cursor-not-allowed;
+  }
+
   .btn-danger {
     @apply bg-red-500 text-white;
   }

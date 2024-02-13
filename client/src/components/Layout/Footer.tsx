@@ -24,7 +24,10 @@ const Footer = () => {
         <div className="border-t border-black border-opacity-10 mt-4 pt-4 flex justify-center">
           <div className="navbar-link">
             <Link smooth to="https://www.jordigital.co.il/" target="_blank">
-              &copy; {new Date().getFullYear()}, JorDigital. כל הזכויות שמורות.
+              <div className="flex flex-col lg:flex-row items-center gap-2">
+                <div>&copy; {new Date().getFullYear()}, JorDigital.</div>
+                <div>כל הזכויות שמורות.</div>
+              </div>
             </Link>
           </div>
         </div>
