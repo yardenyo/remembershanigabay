@@ -48,7 +48,7 @@ const MemoryBook = () => {
         ספר זיכרונות
       </div>
       <div className="title-underline" />
-      <div className="flex flex-col lg:flex-row gap-12 py-20">
+      <div className="flex flex-col lg:flex-row gap-12 lg:py-20">
         <div className="w-full lg:w-1/2 p-4 lg:p-0">
           {!isLoading
             ? memories.map((memory: TestimonialType, index: number) => (
