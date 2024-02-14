@@ -70,4 +70,8 @@
   .social-media-link {
     @apply hover:cursor-pointer hover:text-red-500 hover:font-semibold;
   }
+
+  .circle {
+    @apply rounded-full bg-red-500 w-4 h-4 flex items-center justify-center shadow-md;
+  }
 }
