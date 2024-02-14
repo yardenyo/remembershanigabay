@@ -7,6 +7,8 @@ import Events from "@/views/Events";
 import Media from "@/views/Media";
 import Candles from "@/views/Candles";
 import MemoryBook from "@/views/MemoryBook";
+import Story from "@/views/Story";
+import Organization from "@/views/Organization";
 import SignIn from "@/views/SignIn";
 import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
@@ -22,6 +24,8 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="events" element={<Events />} />
+        <Route path="story" element={<Story />} />
+        <Route path="organization" element={<Organization />} />
         <Route path="media" element={<Media />} />
         <Route path="memorial-candles" element={<Candles />} />
         <Route path="memory-book" element={<MemoryBook />} />
