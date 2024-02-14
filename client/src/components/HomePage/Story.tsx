@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
-
 const Story = () => {
   return (
     <section>
       <div className="flex flex-col py-8 container mx-auto">
         <div className="title text-center text-3xl font-semibold">
-          הסיפור של <span className="text-red-500">שני</span>
+          <span className="text-red-500">שני</span> גבאי
         </div>
         <div className="title-underline" />
         <div className="w-full flex flex-col-reverse lg:flex-row justify-center items-center p-8 gap-4">
@@ -25,11 +23,6 @@ const Story = () => {
                 מוזיקה ושירה עם חברים ועד למסיבות ופסטיבלים כל סוף שבוע שני. לא
                 סתם הסלוגן שלה בחיים היה – "No Time For Drama". היא באמת חיה בלי
                 לחשוב על המחר, אלא רק להנות מהרגע.
-              </div>
-              <div>
-                <button className="btn btn-primary">
-                  <Link to="/story">הסיפור כולו כאן</Link>
-                </button>
               </div>
             </div>
           </div>
