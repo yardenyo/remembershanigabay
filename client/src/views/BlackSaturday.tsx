@@ -1,33 +1,16 @@
 import { Timeline } from "primereact/timeline";
+import BlackSaturdayEvents from "@/constants/BlackSaturday";
 
 const BlackSaturday = () => {
-  const events = [
-    {
-      title: "פסטיבל נובה",
-      place: "חניון רעים",
-      time: "06:35",
-      description: "שעת תחילת מתקפת החמאס והרקטות לאזור עוטף עזה.",
-    },
-    {
-      title: "פסטיבל נובה",
-      place: "חניון רעים",
-      time: "06:37",
-      description:
-        "אמא של שני מקבלת הודעה קולית משני. שני מספרת שיש המון טילים והאדמה רועדת. שני, בן וגלי (חברי ילדות של שני) עולים לרכבה של שני ומתחילים לנסוע צפונה, לכיוון הבית, דרך כביש 232.",
-    },
-    {
-      title: "בטוחים במיגונית",
-      place: "צומת עלומים",
-      time: "07:00",
-      description:
-        "אמא של שני מתקשרת אליה ושואלת לשלומה. שני מספרת שהיא במיגונית, יחד עם חבריה. מחכים שהצבע האדום יפסק וממשיכים בנסיעה הביתה.",
-    },
-  ];
-
-  const cardContent = (event) => {
+  const cardContent = (event: {
+    title: string;
+    place: string;
+    time: string;
+    description: string;
+  }) => {
     return (
       <div
-        className="p-12 border rounded-lg shadow-lg bg-white flex flex-col gap-4"
+        className="p-8 border rounded-lg shadow-lg bg-white flex flex-col gap-4"
         dir="rtl"
       >
         <div className="wrapper">
@@ -60,17 +43,17 @@ const BlackSaturday = () => {
         <div className="title-underline" />
         <div className="hidden lg:flex flex-col-reverse lg:flex-row-reverse justify-center items-center p-8 gap-4">
           <Timeline
-            value={events}
+            value={BlackSaturdayEvents}
             marker={customizedMarker}
             align="alternate"
-            className="w-full py-8 lg:py-16"
+            className="w-full py-8"
             content={cardContent}
             dir="ltr"
           />
         </div>
         <div className="justify-center lg:hidden">
           <div className="p-8 flex flex-col gap-4" dir="rtl">
-            {events.map((event, index) => (
+            {BlackSaturdayEvents.map((event, index) => (
               <div
                 key={index}
                 className="border rounded-lg shadow-lg bg-white flex flex-col gap-4 p-4"
