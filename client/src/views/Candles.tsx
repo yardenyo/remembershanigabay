@@ -1,4 +1,4 @@
-import CandlesComponent from "@/components/Candles";
+import CandlesComponent from "@/components/HomePage/Candles";
 import { useState } from "react";
 import { Paginator } from "primereact/paginator";
 

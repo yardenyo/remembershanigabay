@@ -1,4 +1,4 @@
-import EventsComponent from "@/components/Events";
+import EventsComponent from "@/components/HomePage/Events";
 import { useState } from "react";
 import { Paginator } from "primereact/paginator";
 

@@ -1,4 +1,4 @@
-import MediaComponent from "@/components/Media";
+import MediaComponent from "@/components/HomePage/Media";
 import { useState } from "react";
 import { Paginator } from "primereact/paginator";
 

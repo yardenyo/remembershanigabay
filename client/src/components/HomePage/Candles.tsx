@@ -2,7 +2,7 @@ import Lottie from "react-lottie";
 import Candle from "@/lotties/candle.json";
 import { Link } from "react-router-dom";
 import { useGetAllCandlesQuery } from "@/features/candles/candlesApiSlice";
-import CreateCandle from "@/components/CreateCandle";
+import CreateCandle from "@/components/HomePage/CreateCandle";
 import { useEffect } from "react";
 import { Skeleton } from "primereact/skeleton";
 

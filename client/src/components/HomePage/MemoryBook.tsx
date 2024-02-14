@@ -1,4 +1,4 @@
-import Testimonial from "@/components/Testimonial";
+import Testimonial from "@/components/HomePage/Testimonial";
 import { Carousel } from "primereact/carousel";
 import { Link } from "react-router-dom";
 import { useGetAllMemoriesQuery } from "@/features/memories/memoriesApiSlice";

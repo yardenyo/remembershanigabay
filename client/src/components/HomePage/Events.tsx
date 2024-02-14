@@ -1,4 +1,4 @@
-import Event from "@/components/Event";
+import Event from "@/components/HomePage/Event";
 import { Link } from "react-router-dom";
 import { useGetAllEventsQuery } from "@/features/events/eventsApiSlice";
 import { IEvent } from "@/types/events";
