@@ -2,28 +2,35 @@ import { Timeline } from "primereact/timeline";
 import BlackSaturdayEvents from "@/constants/BlackSaturday";
 
 const BlackSaturday = () => {
-  const cardContent = (event: {
+  const titleContent = (event: {
     title: string;
     place: string;
     time: string;
     description: string;
   }) => {
     return (
-      <div
-        className="p-4 border rounded-lg shadow-lg text-white flex flex-col gap-4 bg-gradient-to-r from-black to-black/90"
-        dir="rtl"
-      >
-        <div className="p-4 isolate w-full rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5">
-          <div className="wrapper">
-            <div className="text-2xl font-semibold text-red-500">
-              {event.title}
-            </div>
-            <div className="text-lg">{event.place}</div>
+      <div className="flex flex-col justify-center items-center m-4" dir="rtl">
+        <div className="flex flex-col justify-center items-center bg-black text-white rounded-full w-60 h-60">
+          <div className="text-2xl font-semibold text-red-500">
+            {event.title}
           </div>
-          <div className="wrapper">
-            <div className="text-lg">{event.time}</div>
-            <div className="text-lg">{event.description}</div>
-          </div>
+          <div className="text-lg">{event.place}</div>
+          <div className="text-lg">{event.time}</div>
+        </div>
+      </div>
+    );
+  };
+
+  const oppositeContent = (event: {
+    title: string;
+    place: string;
+    time: string;
+    description: string;
+  }) => {
+    return (
+      <div className="flex flex-col justify-center m-4" dir="rtl">
+        <div className="px-12 py-4 flex flex-col justify-center h-60">
+          <div className="text-xl">{event.description}</div>
         </div>
       </div>
     );
@@ -47,10 +54,11 @@ const BlackSaturday = () => {
         <div className="hidden lg:flex flex-col-reverse lg:flex-row-reverse justify-center items-center p-8 gap-4">
           <Timeline
             value={BlackSaturdayEvents}
+            opposite={oppositeContent}
             marker={customizedMarker}
             align="alternate"
             className="w-full py-8"
-            content={cardContent}
+            content={titleContent}
             dir="ltr"
           />
         </div>
