@@ -1,4 +1,4 @@
-const Organization = (props: Props) => {
+const Organization = () => {
   return <div>Organization</div>;
 };
 
