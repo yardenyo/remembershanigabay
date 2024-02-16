@@ -49,7 +49,7 @@ class MemoryController implements Controller {
                 req.body,
             );
             res.json(
-                new SuccessResponse('זיכרונות נטענו בהצלחה', {
+                new SuccessResponse('זכרונות נטענו בהצלחה', {
                     memories,
                     count,
                 }),

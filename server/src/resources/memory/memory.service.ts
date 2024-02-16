@@ -24,7 +24,7 @@ class MemoryService {
 
             return { memories, count };
         } catch (error) {
-            throw new Error('שגיאה בטעינת זיכרונות');
+            throw new Error('שגיאה בטעינת זכרונות');
         }
     }
 
