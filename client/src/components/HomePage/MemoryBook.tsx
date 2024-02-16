@@ -41,6 +41,8 @@ const MemoryBook = ({ view = false }: Props) => {
     setFirst(event.first);
     setRows(event.rows);
     setPageNumber(event.page + 1);
+    const section = document.getElementById("memory-book");
+    section?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleTestimonialClick = (index: number) => {
@@ -48,10 +50,10 @@ const MemoryBook = ({ view = false }: Props) => {
   };
 
   return (
-    <section>
+    <section id="memory-book">
       <div className="flex flex-col py-8 container mx-auto">
         <div className="text-center text-3xl font-semibold mb-4">
-          ספר זיכרונות
+          ספר הזכרונות
         </div>
         <div className="title-underline" />
         <div className="flex flex-col lg:flex-row gap-12 lg:py-20">
