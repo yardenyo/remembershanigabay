@@ -10,7 +10,7 @@ const BlackSaturday = () => {
   }) => {
     return (
       <div className="flex flex-col justify-center items-center m-4" dir="rtl">
-        <div className="flex flex-col justify-center items-center h-40 w-full rounded-lg border">
+        <div className="flex flex-col justify-center items-center h-60 w-full border bg-[#1B1B1B] text-white rounded-md shadow-md">
           <div className="text-2xl font-semibold text-red-500">
             {event.title}
           </div>
@@ -29,7 +29,7 @@ const BlackSaturday = () => {
   }) => {
     return (
       <div className="flex flex-col justify-center m-4" dir="rtl">
-        <div className="px-12 py-4 flex flex-col justify-center h-40">
+        <div className="px-12 py-4 flex flex-col justify-center h-60">
           <div className="text-xl">{event.description}</div>
         </div>
       </div>
@@ -67,7 +67,7 @@ const BlackSaturday = () => {
               <div key={index}>
                 <div
                   key={index}
-                  className="border rounded-lg shadow-lg bg-black text-white flex flex-col gap-4 p-4"
+                  className="border flex flex-col gap-4 p-4 rounded-md shadow-md bg-[#1B1B1B] text-white"
                 >
                   <div className="wrapper">
                     <div className="text-2xl font-semibold text-red-500">
