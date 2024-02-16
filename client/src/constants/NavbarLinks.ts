@@ -5,9 +5,9 @@ const NavbarLinks = [
     path: "/events",
   },
   {
-    key: "story",
-    title: "הסיפור של שני",
-    path: "/story",
+    key: "black-saturday",
+    title: "השבת השחורה",
+    path: "/black-saturday",
   },
   {
     key: "organization",

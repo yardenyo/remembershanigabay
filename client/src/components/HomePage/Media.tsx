@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import MediaGallery from "@/components/MediaGallery";
+import MediaGallery from "@/components/HomePage/MediaGallery";
 import { useGetAllMediaQuery } from "@/features/media/mediaApiSlice";
 
 type Props = {

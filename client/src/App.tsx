@@ -4,6 +4,8 @@ import { selectCurrentUser } from "@/features/auth/authSlice";
 import AdminDashboard from "@/views/AdminDashboard";
 import Home from "@/views/Home";
 import Events from "@/views/Events";
+import BlackSaturday from "@/views/BlackSaturday";
+import Organization from "@/views/Organization";
 import Media from "@/views/Media";
 import Candles from "@/views/Candles";
 import MemoryBook from "@/views/MemoryBook";
@@ -22,6 +24,8 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="events" element={<Events />} />
+        <Route path="black-saturday" element={<BlackSaturday />} />
+        <Route path="organization" element={<Organization />} />
         <Route path="media" element={<Media />} />
         <Route path="memorial-candles" element={<Candles />} />
         <Route path="memory-book" element={<MemoryBook />} />

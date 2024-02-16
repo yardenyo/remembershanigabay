@@ -16,7 +16,7 @@ const ManageMemories = () => {
     sortOrder: 0,
   };
   const { data: response, refetch } = useGetAllMemoriesQuery(payload);
-  const MemoriesList = response?.data || [];
+  const MemoriesList = response?.data?.memories || [];
 
   const toast = useToast();
 
