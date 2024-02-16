@@ -1,6 +1,32 @@
 import { Link } from "react-router-dom";
 
-const Organization = () => {
+type Props = {
+  view?: boolean;
+};
+
+const Organization = ({ view = false }: Props) => {
+  const organizationActions = [
+    {
+      title: "הקמת פינות זכרון",
+      description: "במקומות ששני אהבה בעמק יזרעאל, עמק השלום ובגליל התחתון",
+    },
+    {
+      title: "שיפוץ גינת כלבים ביקנעם",
+      description: "במקום ששני אהבה ללכת עם אלפא הכלב שלה",
+    },
+    {
+      title: "תמיכה בעמותות להצלת בעלי חיים",
+      description: "כולל רכישת אוכל וציוד לבעלי חיים",
+    },
+    {
+      title: "חלוקת מאפרות ניידות בחופים ובשמורות הטבע",
+      description: "למען שמירה על איכות הסביבה והטבע",
+    },
+    {
+      title: "ימי התנדבות מאורגנים לניקיון חופים",
+      description: "בשיתוף עם רשות הטבע והגנים",
+    },
+  ];
   return (
     <section>
       <div className="flex flex-col py-8 container mx-auto">
@@ -8,7 +34,7 @@ const Organization = () => {
           חוט ה<span className="text-red-500">שני</span>
         </div>
         <div className="title-underline" />
-        <div className="w-full flex flex-col-reverse lg:flex-row-reverse justify-center items-center p-8 gap-4">
+        <div className="w-full flex flex-col-reverse lg:flex-row-reverse justify-center items-center px-8 py-16 gap-4">
           <div className="xl:w-3/4 w-full flex justify-center items-center">
             <div className="w-full space-y-4">
               <div className="xl:text-2xl text-lg">
@@ -30,9 +56,11 @@ const Organization = () => {
                 מעשים טובים לזכרה ולטובת העולם שכל כך אהבה.
               </div>
               <div>
-                <button className="btn btn-primary">
-                  <Link to="/organization">עוד על הפרויקט</Link>
-                </button>
+                {!view && (
+                  <button className="btn btn-primary">
+                    <Link to="/organization">עוד על הפרויקט</Link>
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -46,6 +74,28 @@ const Organization = () => {
             </div>
           </div>
         </div>
+        {view && (
+          <div className="flex flex-col gap-8 p-8">
+            <div className="title text-2xl flex justify-center items-center text-center">
+              העמותה פועלת להנצחתה ולזכרה בדרכים הבאות
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              {organizationActions.map((action, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col justify-center items-center p-4 border border-black border-opacity-5 text-center"
+                >
+                  <div className="title text-2xl text-red-500">
+                    {action.title}
+                  </div>
+                  <div className="text-center xl:text-2xl text-lg">
+                    {action.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -23,7 +23,10 @@ const Testimonial = ({ testimonial, isActive, onClick }: Props) => (
   >
     <div className="w-24 h-24 rounded-full overflow-hidden">
       <img
-        src={testimonial.image}
+        src={
+          testimonial.image ||
+          "https://res.cloudinary.com/dweltcoxk/image/upload/v1699290993/assets/zb3phjr1bvhgns50gird.png"
+        }
         alt={testimonial.name}
         className="w-full h-full object-cover"
       />
