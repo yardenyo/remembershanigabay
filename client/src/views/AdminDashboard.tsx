@@ -12,7 +12,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-10 container mx-auto">
-      <div className="md:flex-row flex flex-col items-center justify-between w-full gap-4">
+      <div className="lg:flex-row flex flex-col items-center justify-between w-full gap-4">
         <h1 className="text-3xl font-bold">לוח בקרה למנהל</h1>
         <button className="btn btn-primary" onClick={handleSignout}>
           התנתק

@@ -31,7 +31,7 @@ const Organization = () => {
               </div>
               <div>
                 <button className="btn btn-primary">
-                  <Link to="/organization">עוד על הפרוייקט</Link>
+                  <Link to="/organization">עוד על הפרויקט</Link>
                 </button>
               </div>
             </div>

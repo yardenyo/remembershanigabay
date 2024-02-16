@@ -4,18 +4,18 @@ import { HashLink } from "react-router-hash-link";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[80vh] flex flex-col md:flex-row border-b border-black border-opacity-5">
+    <div className="relative h-[80vh] flex flex-col lg:flex-row border-b border-black border-opacity-5">
       <div className="absolute w-full z-50">
         <Navbar />
       </div>
-      <div className="w-full md:w-1/2">
+      <div className="w-full lg:w-1/2">
         <img
           src="https://res.cloudinary.com/dweltcoxk/image/upload/v1707639246/%D7%9C%D7%9C%D7%90_%D7%A9%D7%9D_gmfy2u.webp"
           alt="shani's picture"
-          className="object-cover h-[80vh] md:h-full w-full pointer-events-none"
+          className="object-cover h-[80vh] lg:h-full w-full pointer-events-none"
         />
       </div>
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 absolute top-1/2 md:relative md:top-0 md:border-none border border-black border-opacity-20 bg-white bg-opacity-80 py-8 md:py-0">
+      <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-4 absolute top-1/2 lg:relative lg:top-0 lg:border-none border border-black border-opacity-20 bg-white bg-opacity-80 py-8 lg:py-0">
         <h1 className="text-4xl font-semibold">
           זוכרים את <span className="text-red-500">שני</span> גבאי
         </h1>
