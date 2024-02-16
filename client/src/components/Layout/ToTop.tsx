@@ -23,7 +23,7 @@ const ToTop = () => {
 
   return (
     <div
-      className={`fixed bottom-16 right-5 z-50 bg-gray-300 bg-opacity-50 px-4 py-3 rounded-full hover:bg-opacity-100 transition duration-500 ease-in-out cursor-pointer ${
+      className={`fixed bottom-3 lg:bottom-16 right-5 z-50 bg-gray-300 bg-opacity-50 px-4 py-3 rounded-full hover:bg-opacity-100 transition duration-500 ease-in-out cursor-pointer ${
         isVisible ? "block" : "hidden"
       }`}
       onClick={handleScrollToTop}

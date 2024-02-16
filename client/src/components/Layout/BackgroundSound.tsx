@@ -11,7 +11,7 @@ const BackgroundSound = () => {
   };
 
   return (
-    <div>
+    <div className="hidden lg:block">
       {isVideoPlaying && (
         <iframe
           className="w-0 h-0"
