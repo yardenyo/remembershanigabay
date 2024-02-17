@@ -78,7 +78,7 @@ class AuthController implements Controller {
             res.cookie('refreshToken', refreshToken, {
                 sameSite: 'none',
                 secure: true,
-                httpOnly: true,
+                httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
@@ -113,7 +113,7 @@ class AuthController implements Controller {
             res.cookie('refreshToken', refreshToken, {
                 sameSite: 'none',
                 secure: true,
-                httpOnly: true,
+                httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
