@@ -14,7 +14,7 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
   const payload = {
     sortBy: "createdAt",
     sortOrder: 0,
-    resultsPerPage: !view ? 9 : rows || 9,
+    resultsPerPage: !view ? 6 : rows || 6,
     page: pageNumber || 1,
   };
 
