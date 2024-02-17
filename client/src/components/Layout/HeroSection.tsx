@@ -23,14 +23,12 @@ const HeroSection = () => {
           אתר הנצחה לזכרה של <span className="text-red-500">שני</span> גבאי הי"ד
         </div>
         <div className="flex mt-4 gap-4">
-          <button className="btn-hero btn-primary">
-            <Link to="/memory-book">ספר הזכרונות</Link>
-          </button>
-          <button className="btn-hero btn-secondary">
-            <HashLink smooth to="/#donate">
-              תרומה לעמותה
-            </HashLink>
-          </button>
+          <Link to="/memory-book">
+            <button className="btn-hero btn-primary">ספר הזכרונות</button>
+          </Link>
+          <HashLink smooth to="/#donate">
+            <button className="btn-hero btn-secondary">תרומה לעמותה</button>
+          </HashLink>
         </div>
       </div>
     </div>

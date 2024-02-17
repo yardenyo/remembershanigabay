@@ -57,9 +57,9 @@ const Organization = ({ view = false }: Props) => {
               </div>
               <div>
                 {!view && (
-                  <button className="btn btn-primary">
-                    <Link to="/organization">עוד על הפרויקט</Link>
-                  </button>
+                  <Link to="/organization">
+                    <button className="btn btn-primary">עוד על הפרויקט</button>
+                  </Link>
                 )}
               </div>
             </div>

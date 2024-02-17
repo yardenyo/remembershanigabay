@@ -35,9 +35,9 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
         <MediaGallery isLoading={isLoading} mediaItems={mediaItems} />
         {!view && (
           <div className="flex justify-center px-8">
-            <button className="btn btn-primary">
-              <Link to="/media">כל המדיה</Link>
-            </button>
+            <Link to="/media">
+              <button className="btn btn-primary">כל המדיה</button>
+            </Link>
           </div>
         )}
       </div>
