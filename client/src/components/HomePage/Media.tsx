@@ -34,7 +34,7 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
         <div className="title-underline" />
         <MediaGallery isLoading={isLoading} mediaItems={mediaItems} />
         {!view && (
-          <div className="flex justify-center px-8">
+          <div className="lg:flex lg:justify-center px-8">
             <Link to="/media">
               <button className="btn btn-primary">כל המדיה</button>
             </Link>

@@ -96,7 +96,7 @@ const MemoryBook = ({ view = false }: Props) => {
             dir="ltr"
           />
         ) : (
-          <div className="flex justify-center px-8">
+          <div className="lg:flex lg:justify-center px-8">
             <Link to="/memory-book">
               <button className="btn btn-primary">כל הזכרונות</button>
             </Link>
