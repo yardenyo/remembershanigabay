@@ -18,10 +18,12 @@ const Layout = () => {
   }, []);
 
   useEffect(() => {
-    scroll.scrollToTop({
-      duration: 500,
-      smooth: "easeInOutQuad",
-    });
+    if (pathname !== "/") {
+      scroll.scrollToTop({
+        duration: 500,
+        smooth: "easeInOutQuad",
+      });
+    }
   }, [pathname]);
 
   return (
