@@ -99,9 +99,9 @@ const Candles = ({ view = false, rows, pageNumber, setRecords }: Props) => {
         </div>
         {!view && (
           <div className="flex justify-center px-8">
-            <button className="btn btn-primary">
-              <Link to="/memorial-candles">הדלקת נר</Link>
-            </button>
+            <Link to="/memorial-candles">
+              <button className="btn btn-primary">הדלקת נר</button>
+            </Link>
           </div>
         )}
       </div>

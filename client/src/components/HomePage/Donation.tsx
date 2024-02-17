@@ -25,22 +25,20 @@ const Donation = () => {
                   </div>
                 </div>
                 <div className="wrapper flex gap-4">
-                  <button className="btn btn-primary">
-                    <Link
-                      to="https://www.paypal.com/paypalme/RememberShaniGabay"
-                      target="_blank"
-                    >
-                      תרומה ב-PayPal
-                    </Link>
-                  </button>
-                  <button className="btn btn-secondary">
-                    <Link
-                      to="https://payboxapp.page.link/URaKqFphJ3bV4HHv6"
-                      target="_blank"
-                    >
+                  <Link
+                    to="https://www.paypal.com/paypalme/RememberShaniGabay"
+                    target="_blank"
+                  >
+                    <button className="btn btn-primary">תרומה ב-PayPal</button>
+                  </Link>
+                  <Link
+                    to="https://payboxapp.page.link/URaKqFphJ3bV4HHv6"
+                    target="_blank"
+                  >
+                    <button className="btn btn-secondary">
                       תרומה ב-PayBox
-                    </Link>
-                  </button>
+                    </button>
+                  </Link>
                 </div>
                 <div className="wrapper">
                   <div className="font-semibold">העברה בנקאית:</div>
