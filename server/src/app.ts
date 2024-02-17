@@ -28,6 +28,7 @@ class App {
 
     private initializeMiddleware(): void {
         this.express.use(helmet());
+        this.express.set('trust proxy', 1);
         this.express.use(
             cors({
                 origin: process.env.ORIGIN,
