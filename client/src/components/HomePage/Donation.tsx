@@ -24,7 +24,7 @@ const Donation = () => {
                     תרומתכם תאפשר לנו להמשיך ולהפיץ את המסר של שני ולהנציח אותו.
                   </div>
                 </div>
-                <div className="wrapper flex gap-4">
+                <div className="wrapper flex gap-4 justify-center lg:justify-start">
                   <Link
                     to="https://www.paypal.com/paypalme/RememberShaniGabay"
                     target="_blank"
