@@ -32,7 +32,11 @@ const Media = ({ view = false, rows, pageNumber, setRecords }: Props) => {
       <div className="py-8 container mx-auto">
         <div className="text-center text-3xl font-semibold mb-4">מדיה</div>
         <div className="title-underline" />
-        <MediaGallery isLoading={isLoading} mediaItems={mediaItems} />
+        <MediaGallery
+          view={view}
+          isLoading={isLoading}
+          mediaItems={mediaItems}
+        />
         {!view && (
           <div className="lg:flex lg:justify-center px-8">
             <Link to="/media">

@@ -3,11 +3,16 @@ import { Dialog } from "primereact/dialog";
 import { useState } from "react";
 
 type Props = {
+  view?: boolean;
   isLoading?: boolean;
   mediaItems: { type: string; title: string; url: string }[];
 };
 
-const MediaGallery = ({ isLoading = true, mediaItems }: Props) => {
+const MediaGallery = ({
+  view = false,
+  isLoading = true,
+  mediaItems,
+}: Props) => {
   const [selectedItem, setSelectedItem] = useState<{
     title: string;
     url: string;
@@ -25,7 +30,7 @@ const MediaGallery = ({ isLoading = true, mediaItems }: Props) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
       {isLoading ? (
-        Array.from({ length: 9 }).map((_, index) => (
+        Array.from({ length: view ? 9 : 6 }).map((_, index) => (
           <Skeleton key={index} width="100%" height="300px" />
         ))
       ) : mediaItems.length > 0 ? (
