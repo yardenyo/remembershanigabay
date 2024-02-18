@@ -12,7 +12,6 @@ type Props = {
 const AuthMiddleware = ({ children }: Props) => {
   const [cookies] = useCookies(["isAuthenticated"]);
   const user = useSelector(selectCurrentUser);
-  console.log(document.cookie, "document.cookie");
   const { isLoading, isFetching } = useGetUserQuery(null, {
     skip: !cookies.isAuthenticated,
     refetchOnMountOrArgChange: true,
