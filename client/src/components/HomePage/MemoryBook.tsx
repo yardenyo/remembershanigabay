@@ -84,7 +84,9 @@ const MemoryBook = ({ view = false }: Props) => {
               <Quote quote={memories[activeTestimonialIndex]?.quote} />
             </div>
           ) : (
-            <Skeleton width="50%" height="500px" />
+            <div className="w-full lg:w-1/2 hidden lg:flex">
+              <Skeleton shape="rectangle" width="100%" height="300px" />
+            </div>
           )}
         </div>
         {view ? (
