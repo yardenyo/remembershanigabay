@@ -2,9 +2,6 @@ import { cleanEnv, str, port } from 'envalid';
 
 function validateEnv(): void {
     cleanEnv(process.env, {
-        NODE_ENV: str({
-            choices: ['development', 'production'],
-        }),
         PORT: port({ default: 5000 }),
         MONGODB_URI: str(),
         REDIS_HOST: str(),
@@ -19,7 +16,8 @@ function validateEnv(): void {
         CLOUDINARY_CLOUD_NAME: str(),
         CLOUDINARY_API_KEY: str(),
         CLOUDINARY_API_SECRET: str(),
-        ORIGIN: str(),
+        LOCAL_ORIGIN: str(),
+        PROD_ORIGIN: str(),
     });
 }
 

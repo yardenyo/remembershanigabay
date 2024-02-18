@@ -31,7 +31,10 @@ class App {
         this.express.set('trust proxy', 1);
         this.express.use(
             cors({
-                origin: process.env.ORIGIN,
+                origin:
+                    process.env.NODE_ENV === 'production'
+                        ? process.env.PROD_ORIGIN
+                        : process.env.LOCAL_ORIGIN,
                 credentials: true,
             }),
         );
