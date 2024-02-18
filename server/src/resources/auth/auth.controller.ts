@@ -79,7 +79,7 @@ class AuthController implements Controller {
                 sameSite: 'none',
                 secure: true,
                 httpOnly: true,
-                domain: 'remembershanigabay.co.il',
+                domain: '.remembershanigabay.co.il',
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
@@ -87,7 +87,7 @@ class AuthController implements Controller {
                 sameSite: 'none',
                 secure: true,
                 httpOnly: false,
-                domain: 'remembershanigabay.co.il',
+                domain: '.remembershanigabay.co.il',
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
@@ -116,7 +116,7 @@ class AuthController implements Controller {
                 sameSite: 'none',
                 secure: true,
                 httpOnly: true,
-                domain: 'remembershanigabay.co.il',
+                domain: '.remembershanigabay.co.il',
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
@@ -124,7 +124,7 @@ class AuthController implements Controller {
                 sameSite: 'none',
                 secure: true,
                 httpOnly: false,
-                domain: 'remembershanigabay.co.il',
+                domain: '.remembershanigabay.co.il',
                 expires: new Date(Date.now() + 60 * 60 * 1000),
             });
 
