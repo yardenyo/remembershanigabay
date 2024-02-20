@@ -81,6 +81,10 @@ class AuthController implements Controller {
                 secure: true,
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
+                domain:
+                    process.env.NODE_ENV === 'production'
+                        ? 'remembershanigabay.co.il'
+                        : 'localhost',
             });
 
             res.cookie('isAuthenticated', true, {
@@ -89,6 +93,10 @@ class AuthController implements Controller {
                 secure: true,
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
+                domain:
+                    process.env.NODE_ENV === 'production'
+                        ? 'remembershanigabay.co.il'
+                        : 'localhost',
             });
 
             res.json(
@@ -118,6 +126,10 @@ class AuthController implements Controller {
                 secure: true,
                 httpOnly: true,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
+                domain:
+                    process.env.NODE_ENV === 'production'
+                        ? 'remembershanigabay.co.il'
+                        : 'localhost',
             });
 
             res.cookie('isAuthenticated', true, {
@@ -126,6 +138,10 @@ class AuthController implements Controller {
                 secure: true,
                 httpOnly: false,
                 expires: new Date(Date.now() + 60 * 60 * 1000),
+                domain:
+                    process.env.NODE_ENV === 'production'
+                        ? 'remembershanigabay.co.il'
+                        : 'localhost',
             });
 
             res.json(
